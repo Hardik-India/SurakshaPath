@@ -1,0 +1,10 @@
+feature,importance
+num_lanes_total,0.17264543066425608
+baseline_mean_severe,0.16444797256962584
+avg_speed_limit_ms,0.14553802448221212
+int_speed_breaker,0.13914782752967472
+int_none,0.1116960022122755
+int_signal_retiming,0.1043024333857605
+baseline_mean_conflicts,0.10110300919677657
+num_connected_edges,0.0521527025445723
+has_signal,0.008966597414846424

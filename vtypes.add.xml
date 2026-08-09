@@ -1,0 +1,5 @@
+<additional>
+  <vType id="car" vClass="passenger" length="4.5" accel="2.2" decel="4.0" sigma="0.6" minGap="2.0" maxSpeed="16.7"/>
+  <vType id="twowheeler" vClass="motorcycle" length="2.0" accel="3.0" decel="5.0" sigma="0.85" minGap="1.0" maxSpeed="18"/>
+  <vType id="autorickshaw" vClass="taxi" length="2.6" accel="1.8" decel="4.0" sigma="0.75" minGap="1.5" maxSpeed="13.9"/>
+</additional>

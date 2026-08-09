@@ -1,0 +1,12 @@
+<configuration>
+  <input>
+    <net-file value="central_kolkata.net.xml"/>
+    <route-files value="trips_merged.trips.xml"/>
+    <additional-files value="vtypes.add.xml"/>
+  </input>
+  <time>
+    <begin value="0"/>
+    <end value="28800"/>
+    <step-length value="0.5"/>
+  </time>
+</configuration>

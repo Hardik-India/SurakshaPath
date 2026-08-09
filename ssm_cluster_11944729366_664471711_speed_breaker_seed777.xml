@@ -1,0 +1,1405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-08-09T22:22:49.429608+05:30 by Eclipse SUMO sumo 1.27.1
+<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="subnet_cluster_11944729366_664471711_speedbreaker.net.xml"/>
+        <route-files value="subnet_cluster_11944729366_664471711_trips.trips.xml"/>
+    </input>
+
+    <time>
+        <begin value="0"/>
+        <end value="300"/>
+        <step-length value="0.5"/>
+    </time>
+
+    <processing>
+        <time-to-teleport value="90"/>
+    </processing>
+
+    <report>
+        <no-warnings value="true"/>
+    </report>
+
+    <ssm_device>
+        <device.ssm.probability value="1.0"/>
+        <device.ssm.measures value="TTC PET DRAC"/>
+        <device.ssm.file value="ssm_cluster_11944729366_664471711_speed_breaker_seed777.xml"/>
+        <device.ssm.geo value="true"/>
+    </ssm_device>
+
+    <random_number>
+        <seed value="777"/>
+    </random_number>
+
+</sumoConfiguration>
+-->
+
+<SSMLog>
+    <conflict begin="42.00" end="52.50" ego="1" foe="9">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="42.00" position="88.357376,22.568484" type="11" value="3.64" speed="21.08"/>
+        <PET time="49.78" position="88.357376,22.568484" type="17" value="2.53" speed="10.68"/>
+    </conflict>
+    <conflict begin="42.00" end="55.50" ego="9" foe="1">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="42.00" position="88.357376,22.568484" type="10" value="3.64" speed="9.90"/>
+        <PET time="49.78" position="88.357376,22.568484" type="17" value="2.53" speed="12.20"/>
+    </conflict>
+    <conflict begin="46.50" end="56.00" ego="6" foe="13">
+        <minTTC time="48.00" position="88.356985,22.568435" type="7" value="2.14" speed="7.60"/>
+        <maxDRAC time="48.00" position="88.356985,22.568435" type="7" value="1.78" speed="7.60"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="46.50" end="61.00" ego="13" foe="6">
+        <minTTC time="48.00" position="88.356985,22.568435" type="6" value="2.14" speed="17.23"/>
+        <maxDRAC time="48.00" position="88.356985,22.568435" type="6" value="1.78" speed="17.23"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="54.50" end="65.00" ego="18" foe="9">
+        <minTTC time="56.00" position="88.356192,22.567854" type="10" value="2.32" speed="2.54"/>
+        <maxDRAC time="55.50" position="88.356192,22.567854" type="10" value="2.07" speed="4.35"/>
+        <PET time="58.59" position="88.355904,22.567935" type="111" value="0.00" speed="5.30"/>
+    </conflict>
+    <conflict begin="54.50" end="66.50" ego="9" foe="18">
+        <minTTC time="56.00" position="88.356192,22.567854" type="11" value="2.32" speed="12.16"/>
+        <maxDRAC time="55.50" position="88.356192,22.567854" type="11" value="2.07" speed="11.90"/>
+        <PET time="58.33" position="88.355904,22.567935" type="111" value="0.00" speed="11.91"/>
+    </conflict>
+    <conflict begin="63.00" end="74.00" ego="33" foe="15">
+        <minTTC time="66.50" position="88.355971,22.567945" type="11" value="0.92" speed="9.88"/>
+        <maxDRAC time="66.50" position="88.355971,22.567945" type="11" value="3.91" speed="9.88"/>
+        <PET time="67.88" position="88.355971,22.567945" type="17" value="0.21" speed="8.72"/>
+    </conflict>
+    <conflict begin="63.00" end="75.00" ego="15" foe="33">
+        <minTTC time="66.50" position="88.355971,22.567945" type="10" value="0.92" speed="10.96"/>
+        <maxDRAC time="66.50" position="88.355971,22.567945" type="10" value="3.91" speed="10.96"/>
+        <PET time="67.88" position="88.355971,22.567945" type="17" value="0.21" speed="11.32"/>
+    </conflict>
+    <conflict begin="46.00" end="88.50" ego="28" foe="16">
+        <minTTC time="70.00" position="88.355670,22.569403" type="2" value="1.46" speed="5.39"/>
+        <maxDRAC time="68.50" position="88.355670,22.569403" type="2" value="2.91" speed="10.42"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="46.00" end="92.50" ego="16" foe="28">
+        <minTTC time="70.00" position="88.355670,22.569403" type="3" value="1.46" speed="0.00"/>
+        <maxDRAC time="68.50" position="88.355670,22.569403" type="3" value="2.91" speed="0.14"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="83.50" end="94.00" ego="41" foe="35">
+        <minTTC time="85.00" position="88.356985,22.568435" type="7" value="2.52" speed="6.29"/>
+        <maxDRAC time="85.00" position="88.356985,22.568435" type="7" value="3.10" speed="6.29"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="85.50" end="94.50" ego="57" foe="29">
+        <minTTC time="86.00" position="88.357400,22.568466" type="11" value="2.80" speed="12.59"/>
+        <maxDRAC time="86.00" position="88.357400,22.568466" type="11" value="1.12" speed="12.59"/>
+        <PET time="91.99" position="88.357400,22.568466" type="17" value="2.90" speed="10.59"/>
+    </conflict>
+    <conflict begin="83.50" end="96.00" ego="35" foe="41">
+        <minTTC time="85.00" position="88.356985,22.568435" type="6" value="2.52" speed="15.65"/>
+        <maxDRAC time="85.00" position="88.356985,22.568435" type="6" value="3.10" speed="15.65"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="81.00" end="96.50" ego="36" foe="48">
+        <minTTC time="84.00" position="88.355296,22.568450" type="10" value="3.19" speed="4.50"/>
+        <maxDRAC time="84.00" position="88.355296,22.568450" type="10" value="1.72" speed="4.50"/>
+        <PET time="89.12" position="88.355353,22.568436" type="17" value="1.25" speed="5.72"/>
+    </conflict>
+    <conflict begin="81.00" end="96.50" ego="48" foe="36">
+        <minTTC time="84.00" position="88.355296,22.568450" type="11" value="3.19" speed="10.96"/>
+        <maxDRAC time="84.00" position="88.355296,22.568450" type="11" value="1.72" speed="10.96"/>
+        <PET time="89.12" position="88.355353,22.568436" type="17" value="1.25" speed="10.55"/>
+    </conflict>
+    <conflict begin="85.50" end="97.00" ego="29" foe="57">
+        <minTTC time="86.00" position="88.357400,22.568466" type="10" value="2.80" speed="8.46"/>
+        <maxDRAC time="86.00" position="88.357400,22.568466" type="10" value="1.12" speed="8.46"/>
+        <PET time="91.99" position="88.357400,22.568466" type="17" value="2.90" speed="5.51"/>
+    </conflict>
+    <conflict begin="46.00" end="97.50" ego="1" foe="14">
+        <minTTC time="76.50" position="88.360177,22.567607" type="3" value="1.40" speed="0.01"/>
+        <maxDRAC time="49.50" position="88.357443,22.568447" type="6" value="3.46" speed="7.19"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="69.50" end="74.00" ego="1" foe="21">
+        <minTTC time="72.50" position="88.360163,22.567503" type="11" value="1.81" speed="12.83"/>
+        <maxDRAC time="72.50" position="88.360163,22.567503" type="11" value="2.07" speed="12.83"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="69.50" end="96.50" ego="1" foe="5">
+        <minTTC time="83.50" position="88.360181,22.567474" type="10" value="0.65" speed="3.87"/>
+        <maxDRAC time="83.50" position="88.360181,22.567474" type="10" value="2.02" speed="3.87"/>
+        <PET time="89.81" position="88.360181,22.567474" type="17" value="4.98" speed="6.44"/>
+    </conflict>
+    <conflict begin="74.00" end="97.50" ego="1" foe="38">
+        <minTTC time="79.50" position="88.360177,22.567607" type="3" value="2.41" speed="0.00"/>
+        <maxDRAC time="79.00" position="88.360177,22.567607" type="3" value="2.17" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="46.00" end="97.50" ego="14" foe="1">
+        <minTTC time="76.50" position="88.360177,22.567607" type="2" value="1.40" speed="4.26"/>
+        <maxDRAC time="49.50" position="88.357443,22.568447" type="7" value="3.46" speed="10.21"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="88.00" end="98.00" ego="25" foe="29">
+        <minTTC time="90.00" position="88.357133,22.568306" type="10" value="1.64" speed="13.33"/>
+        <maxDRAC time="91.00" position="88.357139,22.568295" type="11" value="4.11" speed="9.49"/>
+        <PET time="95.28" position="88.357139,22.568295" type="17" value="1.83" speed="5.88"/>
+    </conflict>
+    <conflict begin="88.00" end="101.50" ego="29" foe="25">
+        <minTTC time="90.00" position="88.357133,22.568306" type="11" value="1.64" speed="10.88"/>
+        <maxDRAC time="91.00" position="88.357139,22.568295" type="10" value="4.11" speed="9.19"/>
+        <PET time="95.28" position="88.357139,22.568295" type="17" value="1.83" speed="11.47"/>
+    </conflict>
+    <conflict begin="78.00" end="103.00" ego="52" foe="32">
+        <minTTC time="80.00" position="88.356430,22.569004" type="7" value="2.73" speed="6.60"/>
+        <maxDRAC time="80.00" position="88.356430,22.569004" type="7" value="1.21" speed="6.60"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="72.00" end="103.00" ego="38" foe="14">
+        <minTTC time="80.50" position="88.360185,22.567675" type="2" value="1.39" speed="5.97"/>
+        <maxDRAC time="79.00" position="88.360185,22.567676" type="2" value="2.88" speed="10.81"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="74.50" end="97.50" ego="38" foe="1">
+        <minTTC time="79.50" position="88.360177,22.567607" type="2" value="2.41" speed="9.26"/>
+        <maxDRAC time="79.00" position="88.360177,22.567607" type="2" value="2.17" speed="10.81"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="77.50" end="97.00" ego="38" foe="5">
+        <minTTC time="83.50" position="88.360164,22.567510" type="11" value="16.89" speed="1.21"/>
+        <maxDRAC time="84.00" position="88.360181,22.567474" type="10" value="0.14" speed="1.77"/>
+        <PET time="89.81" position="88.360181,22.567474" type="17" value="1.28" speed="8.40"/>
+    </conflict>
+    <conflict begin="72.00" end="104.00" ego="14" foe="38">
+        <minTTC time="80.50" position="88.360185,22.567675" type="3" value="1.39" speed="0.05"/>
+        <maxDRAC time="79.00" position="88.360185,22.567676" type="3" value="2.88" speed="0.28"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="90.50" end="104.00" ego="47" foe="37">
+        <minTTC time="90.50" position="88.356086,22.566685" type="10" value="4.65" speed="9.09"/>
+        <maxDRAC time="93.00" position="88.356056,22.566679" type="11" value="2.77" speed="7.73"/>
+        <PET time="98.09" position="88.356056,22.566679" type="17" value="1.66" speed="6.87"/>
+    </conflict>
+    <conflict begin="91.50" end="104.50" ego="37" foe="47">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="93.00" position="88.356056,22.566679" type="10" value="2.77" speed="11.11"/>
+        <PET time="98.09" position="88.356056,22.566679" type="17" value="1.66" speed="10.80"/>
+    </conflict>
+    <conflict begin="79.50" end="106.00" ego="52" foe="46">
+        <minTTC time="91.00" position="88.356950,22.568928" type="2" value="2.86" speed="10.56"/>
+        <maxDRAC time="80.50" position="88.356430,22.569004" type="7" value="1.56" speed="4.35"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="78.00" end="104.50" ego="32" foe="52">
+        <minTTC time="80.00" position="88.356430,22.569004" type="6" value="2.73" speed="12.19"/>
+        <maxDRAC time="80.00" position="88.356430,22.569004" type="6" value="1.21" speed="12.19"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="79.50" end="108.00" ego="46" foe="52">
+        <minTTC time="91.00" position="88.356950,22.568928" type="3" value="2.86" speed="4.35"/>
+        <maxDRAC time="80.50" position="88.356430,22.569004" type="6" value="1.56" speed="12.07"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="103.50" end="112.50" ego="28" foe="65">
+        <minTTC time="105.50" position="88.355976,22.567941" type="11" value="1.50" speed="11.05"/>
+        <maxDRAC time="104.00" position="88.355969,22.567933" type="10" value="1.66" speed="10.96"/>
+        <PET time="110.62" position="88.355976,22.567941" type="17" value="3.61" speed="5.19"/>
+    </conflict>
+    <conflict begin="106.00" end="114.50" ego="28" foe="62">
+        <minTTC time="107.50" position="88.355969,22.567933" type="10" value="1.80" speed="4.24"/>
+        <maxDRAC time="107.00" position="88.355969,22.567933" type="10" value="3.06" speed="6.19"/>
+        <PET time="110.62" position="88.355976,22.567941" type="17" value="1.21" speed="5.19"/>
+    </conflict>
+    <conflict begin="112.00" end="120.50" ego="17" foe="41">
+        <minTTC time="114.50" position="88.359291,22.567723" type="11" value="1.59" speed="13.00"/>
+        <maxDRAC time="114.50" position="88.359291,22.567723" type="11" value="3.94" speed="13.00"/>
+        <PET time="117.63" position="88.359287,22.567760" type="17" value="1.02" speed="12.92"/>
+    </conflict>
+    <conflict begin="112.00" end="120.50" ego="41" foe="17">
+        <minTTC time="114.50" position="88.359291,22.567723" type="10" value="1.59" speed="5.98"/>
+        <maxDRAC time="114.50" position="88.359291,22.567723" type="10" value="3.94" speed="5.98"/>
+        <PET time="117.63" position="88.359287,22.567760" type="17" value="1.02" speed="5.44"/>
+    </conflict>
+    <conflict begin="11.50" end="122.00" ego="5" foe="7">
+        <minTTC time="71.00" position="88.360180,22.567370" type="3" value="1.43" speed="0.00"/>
+        <maxDRAC time="69.50" position="88.360180,22.567370" type="3" value="2.93" speed="0.07"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="69.50" end="94.00" ego="5" foe="1">
+        <minTTC time="83.50" position="88.360181,22.567474" type="11" value="0.65" speed="2.92"/>
+        <maxDRAC time="83.50" position="88.360181,22.567474" type="11" value="2.02" speed="2.92"/>
+        <PET time="89.81" position="88.360181,22.567474" type="17" value="4.98" speed="5.55"/>
+    </conflict>
+    <conflict begin="77.50" end="95.50" ego="5" foe="38">
+        <minTTC time="83.50" position="88.360164,22.567510" type="10" value="16.89" speed="2.92"/>
+        <maxDRAC time="84.00" position="88.360181,22.567474" type="11" value="0.14" speed="1.15"/>
+        <PET time="89.81" position="88.360181,22.567474" type="17" value="1.28" speed="5.55"/>
+    </conflict>
+    <conflict begin="11.50" end="122.00" ego="7" foe="5">
+        <minTTC time="71.00" position="88.360180,22.567370" type="2" value="1.43" speed="4.33"/>
+        <maxDRAC time="69.50" position="88.360180,22.567370" type="2" value="2.93" speed="9.44"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="111.50" end="122.00" ego="73" foe="49">
+        <minTTC time="114.00" position="88.356860,22.567318" type="11" value="2.05" speed="11.94"/>
+        <maxDRAC time="114.50" position="88.356815,22.567338" type="10" value="3.61" speed="11.81"/>
+        <PET time="118.06" position="88.356815,22.567338" type="17" value="1.42" speed="11.53"/>
+    </conflict>
+    <conflict begin="113.50" end="123.00" ego="25" foe="51">
+        <minTTC time="116.00" position="88.355328,22.568476" type="10" value="1.62" speed="10.52"/>
+        <maxDRAC time="116.00" position="88.355328,22.568476" type="10" value="2.93" speed="10.52"/>
+        <PET time="119.29" position="88.355328,22.568476" type="17" value="1.02" speed="10.41"/>
+    </conflict>
+    <conflict begin="108.50" end="123.00" ego="69" foe="51">
+        <minTTC time="118.00" position="88.355388,22.568554" type="2" value="2.74" speed="13.11"/>
+        <maxDRAC time="118.00" position="88.355388,22.568554" type="2" value="1.71" speed="13.11"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="99.00" end="127.00" ego="35" foe="43">
+        <minTTC time="101.00" position="88.357903,22.570504" type="7" value="1.78" speed="12.65"/>
+        <maxDRAC time="101.00" position="88.357903,22.570504" type="7" value="3.56" speed="12.65"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="99.00" end="127.00" ego="43" foe="35">
+        <minTTC time="101.00" position="88.357903,22.570504" type="6" value="1.78" speed="8.94"/>
+        <maxDRAC time="101.00" position="88.357903,22.570504" type="6" value="3.56" speed="8.94"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="106.00" end="115.00" ego="62" foe="28">
+        <minTTC time="107.50" position="88.355969,22.567933" type="11" value="1.80" speed="15.92"/>
+        <maxDRAC time="107.00" position="88.355969,22.567933" type="11" value="3.06" speed="14.97"/>
+        <PET time="110.62" position="88.355976,22.567941" type="17" value="1.21" speed="19.16"/>
+    </conflict>
+    <conflict begin="108.00" end="126.50" ego="51" foe="69">
+        <minTTC time="118.00" position="88.355388,22.568554" type="3" value="2.74" speed="3.71"/>
+        <maxDRAC time="118.00" position="88.355388,22.568554" type="3" value="1.71" speed="3.71"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="113.50" end="123.00" ego="51" foe="25">
+        <minTTC time="116.00" position="88.355328,22.568476" type="11" value="1.62" speed="11.72"/>
+        <maxDRAC time="116.00" position="88.355328,22.568476" type="11" value="2.93" speed="11.72"/>
+        <PET time="119.29" position="88.355328,22.568476" type="17" value="1.02" speed="6.93"/>
+    </conflict>
+    <conflict begin="103.50" end="114.00" ego="65" foe="28">
+        <minTTC time="105.50" position="88.355976,22.567941" type="10" value="1.50" speed="15.94"/>
+        <maxDRAC time="104.00" position="88.355969,22.567933" type="11" value="1.66" speed="14.05"/>
+        <PET time="110.62" position="88.355976,22.567941" type="17" value="3.61" speed="13.59"/>
+    </conflict>
+    <conflict begin="111.50" end="122.00" ego="49" foe="73">
+        <minTTC time="114.00" position="88.356860,22.567318" type="10" value="2.05" speed="8.54"/>
+        <maxDRAC time="114.50" position="88.356815,22.567338" type="11" value="3.61" speed="6.48"/>
+        <PET time="118.06" position="88.356815,22.567338" type="17" value="1.42" speed="6.23"/>
+    </conflict>
+    <conflict begin="120.50" end="142.50" ego="32" foe="26">
+        <minTTC time="125.50" position="88.360177,22.567607" type="2" value="1.87" speed="11.62"/>
+        <maxDRAC time="125.50" position="88.360177,22.567607" type="2" value="3.10" speed="11.62"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="130.00" end="143.00" ego="84" foe="64">
+        <minTTC time="132.50" position="88.360106,22.567525" type="6" value="2.12" speed="3.50"/>
+        <maxDRAC time="132.00" position="88.360106,22.567525" type="6" value="3.39" speed="2.81"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="132.00" end="143.50" ego="48" foe="64">
+        <minTTC time="133.50" position="88.360181,22.567474" type="10" value="0.92" speed="8.60"/>
+        <maxDRAC time="134.50" position="88.360181,22.567474" type="10" value="3.70" speed="8.05"/>
+        <PET time="139.83" position="88.360181,22.567474" type="17" value="4.11" speed="13.28"/>
+    </conflict>
+    <conflict begin="120.00" end="144.50" ego="26" foe="32">
+        <minTTC time="125.50" position="88.360177,22.567607" type="3" value="1.87" speed="0.00"/>
+        <maxDRAC time="125.50" position="88.360177,22.567607" type="3" value="3.10" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="132.50" end="146.00" ego="56" foe="7">
+        <minTTC time="137.50" position="88.355991,22.567968" type="7" value="1.40" speed="4.72"/>
+        <maxDRAC time="137.50" position="88.355991,22.567968" type="7" value="4.00" speed="4.72"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="134.00" end="147.00" ego="40" foe="64">
+        <minTTC time="134.00" position="88.360164,22.567510" type="11" value="6.18" speed="8.45"/>
+        <maxDRAC time="134.50" position="88.360181,22.567474" type="10" value="1.32" speed="9.12"/>
+        <PET time="139.83" position="88.360181,22.567474" type="17" value="1.24" speed="9.52"/>
+    </conflict>
+    <conflict begin="132.00" end="147.50" ego="88" foe="71">
+        <minTTC time="133.50" position="88.356186,22.569092" type="7" value="1.78" speed="3.28"/>
+        <maxDRAC time="133.50" position="88.356186,22.569092" type="7" value="3.74" speed="3.28"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="132.00" end="150.00" ego="71" foe="88">
+        <minTTC time="133.50" position="88.356186,22.569092" type="6" value="1.78" speed="13.34"/>
+        <maxDRAC time="133.50" position="88.356186,22.569092" type="6" value="3.74" speed="13.34"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="90.50" end="151.50" ego="55" foe="7">
+        <minTTC time="91.00" position="88.360180,22.567370" type="2" value="2.91" speed="18.98"/>
+        <maxDRAC time="90.50" position="88.360179,22.567360" type="2" value="3.37" speed="20.82"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="92.50" end="104.00" ego="55" foe="61">
+        <minTTC time="92.50" position="88.360156,22.567230" type="2" value="2.79" speed="14.71"/>
+        <maxDRAC time="92.50" position="88.360156,22.567230" type="2" value="0.64" speed="14.71"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="90.50" end="152.50" ego="7" foe="55">
+        <minTTC time="91.00" position="88.360180,22.567370" type="3" value="2.91" speed="2.14"/>
+        <maxDRAC time="90.50" position="88.360179,22.567360" type="3" value="3.37" speed="1.16"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="135.00" end="147.50" ego="7" foe="56">
+        <minTTC time="137.50" position="88.355991,22.567968" type="6" value="1.40" speed="11.22"/>
+        <maxDRAC time="137.50" position="88.355991,22.567968" type="6" value="4.00" speed="11.22"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="153.50" end="163.50" ego="82" foe="93">
+        <minTTC time="154.50" position="88.355351,22.568449" type="11" value="3.29" speed="12.77"/>
+        <maxDRAC time="156.00" position="88.355340,22.568471" type="10" value="3.49" speed="12.28"/>
+        <PET time="160.50" position="88.355340,22.568471" type="17" value="2.06" speed="12.22"/>
+    </conflict>
+    <conflict begin="154.50" end="163.50" ego="93" foe="82">
+        <minTTC time="154.50" position="88.355351,22.568449" type="10" value="3.29" speed="12.10"/>
+        <maxDRAC time="156.00" position="88.355340,22.568471" type="11" value="3.49" speed="10.36"/>
+        <PET time="160.50" position="88.355340,22.568471" type="17" value="2.06" speed="5.75"/>
+    </conflict>
+    <conflict begin="162.00" end="171.50" ego="108" foe="103">
+        <minTTC time="165.00" position="88.354803,22.568720" type="11" value="1.33" speed="11.06"/>
+        <maxDRAC time="164.50" position="88.354803,22.568720" type="11" value="2.13" speed="11.16"/>
+        <PET time="167.03" position="88.354803,22.568720" type="17" value="0.69" speed="7.75"/>
+    </conflict>
+    <conflict begin="153.00" end="172.50" ego="102" foe="92">
+        <minTTC time="164.00" position="88.358411,22.571020" type="2" value="2.86" speed="12.73"/>
+        <maxDRAC time="164.00" position="88.358411,22.571020" type="2" value="1.41" speed="12.73"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="153.00" end="174.00" ego="92" foe="102">
+        <minTTC time="164.00" position="88.358411,22.571020" type="3" value="2.86" speed="4.65"/>
+        <maxDRAC time="164.00" position="88.358411,22.571020" type="3" value="1.41" speed="4.65"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="167.50" end="175.50" ego="84" foe="95">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="172.19" position="88.356853,22.567344" type="17" value="1.92" speed="10.82"/>
+    </conflict>
+    <conflict begin="162.00" end="175.50" ego="100" foe="81">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="163.50" position="88.355666,22.569317" type="10" value="3.60" speed="10.06"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="167.50" end="177.00" ego="99" foe="70">
+        <minTTC time="169.50" position="88.356903,22.565916" type="11" value="2.09" speed="13.75"/>
+        <maxDRAC time="169.50" position="88.356903,22.565916" type="11" value="3.06" speed="13.75"/>
+        <PET time="173.10" position="88.356860,22.565931" type="17" value="0.95" speed="13.33"/>
+    </conflict>
+    <conflict begin="161.00" end="178.00" ego="105" foe="52">
+        <minTTC time="169.00" position="88.360177,22.567607" type="2" value="1.34" speed="4.36"/>
+        <maxDRAC time="167.00" position="88.360177,22.567607" type="2" value="2.85" speed="10.20"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="164.50" end="178.00" ego="105" foe="77">
+        <minTTC time="171.50" position="88.360164,22.567510" type="11" value="4.60" speed="2.49"/>
+        <maxDRAC time="172.00" position="88.360181,22.567474" type="10" value="0.28" speed="3.22"/>
+        <PET time="175.80" position="88.360181,22.567474" type="17" value="1.08" speed="14.62"/>
+    </conflict>
+    <conflict begin="167.50" end="176.00" ego="95" foe="84">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="172.19" position="88.356853,22.567344" type="17" value="1.92" speed="10.74"/>
+    </conflict>
+    <conflict begin="160.00" end="179.50" ego="106" foe="81">
+        <minTTC time="169.00" position="88.355670,22.569403" type="2" value="1.33" speed="5.23"/>
+        <maxDRAC time="168.00" position="88.355670,22.569403" type="2" value="2.37" speed="7.77"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="167.50" end="180.00" ego="70" foe="99">
+        <minTTC time="169.50" position="88.356903,22.565916" type="10" value="2.09" speed="4.97"/>
+        <maxDRAC time="169.50" position="88.356903,22.565916" type="10" value="3.06" speed="4.97"/>
+        <PET time="173.10" position="88.356860,22.565931" type="17" value="0.95" speed="4.71"/>
+    </conflict>
+    <conflict begin="153.00" end="181.50" ego="77" foe="52">
+        <minTTC time="171.50" position="88.360181,22.567474" type="11" value="0.67" speed="2.80"/>
+        <maxDRAC time="171.50" position="88.360181,22.567474" type="11" value="1.99" speed="2.80"/>
+        <PET time="175.80" position="88.360181,22.567474" type="17" value="3.09" speed="6.10"/>
+    </conflict>
+    <conflict begin="164.50" end="178.00" ego="77" foe="105">
+        <minTTC time="171.50" position="88.360164,22.567510" type="10" value="4.60" speed="2.80"/>
+        <maxDRAC time="172.00" position="88.360181,22.567474" type="11" value="0.28" speed="0.99"/>
+        <PET time="175.80" position="88.360181,22.567474" type="17" value="1.08" speed="6.10"/>
+    </conflict>
+    <conflict begin="160.00" end="182.50" ego="81" foe="106">
+        <minTTC time="169.00" position="88.355670,22.569403" type="3" value="1.33" speed="0.00"/>
+        <maxDRAC time="168.00" position="88.355670,22.569403" type="3" value="2.37" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="162.00" end="172.50" ego="81" foe="100">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="163.50" position="88.355666,22.569317" type="11" value="3.60" speed="14.27"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="171.00" end="183.00" ego="100" foe="82">
+        <minTTC time="172.00" position="88.354678,22.569671" type="6" value="2.90" speed="15.33"/>
+        <maxDRAC time="172.00" position="88.354678,22.569671" type="6" value="1.29" speed="15.33"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="157.00" end="183.00" ego="52" foe="77">
+        <minTTC time="171.50" position="88.360181,22.567474" type="10" value="0.67" speed="4.18"/>
+        <maxDRAC time="171.50" position="88.360181,22.567474" type="10" value="1.99" speed="4.18"/>
+        <PET time="175.80" position="88.360181,22.567474" type="17" value="3.09" speed="17.10"/>
+    </conflict>
+    <conflict begin="160.50" end="178.00" ego="52" foe="105">
+        <minTTC time="169.00" position="88.360177,22.567607" type="3" value="1.34" speed="0.00"/>
+        <maxDRAC time="167.00" position="88.360177,22.567607" type="3" value="2.85" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="171.00" end="183.00" ego="82" foe="100">
+        <minTTC time="172.00" position="88.354678,22.569671" type="7" value="2.90" speed="7.51"/>
+        <maxDRAC time="172.00" position="88.354678,22.569671" type="7" value="1.29" speed="7.51"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="162.00" end="171.50" ego="103" foe="108">
+        <minTTC time="165.00" position="88.354803,22.568720" type="10" value="1.33" speed="8.55"/>
+        <maxDRAC time="164.50" position="88.354803,22.568720" type="10" value="2.13" speed="7.39"/>
+        <PET time="167.03" position="88.354803,22.568720" type="17" value="0.69" speed="9.64"/>
+    </conflict>
+    <conflict begin="156.00" end="186.00" ego="97" foe="104">
+        <minTTC time="159.50" position="88.354832,22.566139" type="6" value="2.33" speed="10.67"/>
+        <maxDRAC time="159.50" position="88.354832,22.566139" type="6" value="2.29" speed="10.67"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="156.00" end="186.00" ego="104" foe="97">
+        <minTTC time="159.50" position="88.354832,22.566139" type="7" value="2.33" speed="6.84"/>
+        <maxDRAC time="159.50" position="88.354832,22.566139" type="7" value="2.29" speed="6.84"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="173.00" end="188.00" ego="111" foe="75">
+        <minTTC time="176.00" position="88.357614,22.567709" type="10" value="3.01" speed="8.12"/>
+        <maxDRAC time="177.50" position="88.357584,22.567709" type="11" value="1.80" speed="5.52"/>
+        <PET time="183.89" position="88.357614,22.567709" type="17" value="1.56" speed="6.19"/>
+    </conflict>
+    <conflict begin="180.50" end="189.50" ego="82" foe="119">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="186.06" position="88.354741,22.570304" type="17" value="1.41" speed="15.39"/>
+    </conflict>
+    <conflict begin="180.50" end="192.00" ego="119" foe="82">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="186.06" position="88.354741,22.570304" type="17" value="1.41" speed="7.22"/>
+    </conflict>
+    <conflict begin="181.00" end="193.50" ego="94" foe="91">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="187.82" position="88.356790,22.567301" type="17" value="1.52" speed="7.36"/>
+    </conflict>
+    <conflict begin="186.00" end="193.50" ego="108" foe="104">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="190.02" position="88.355205,22.567606" type="17" value="1.29" speed="9.89"/>
+    </conflict>
+    <conflict begin="186.00" end="194.00" ego="104" foe="108">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="190.02" position="88.355205,22.567606" type="17" value="1.29" speed="16.77"/>
+    </conflict>
+    <conflict begin="181.00" end="195.00" ego="91" foe="94">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="187.82" position="88.356790,22.567301" type="17" value="1.52" speed="5.52"/>
+    </conflict>
+    <conflict begin="190.00" end="200.50" ego="104" foe="110">
+        <minTTC time="195.50" position="88.355988,22.567968" type="111" value="0.00" speed="6.34"/>
+        <maxDRAC time="195.50" position="88.355988,22.567968" type="11" value="0.00" speed="6.34"/>
+        <PET time="193.95" position="88.355988,22.567968" type="111" value="0.00" speed="6.71"/>
+    </conflict>
+    <conflict begin="191.00" end="201.50" ego="114" foe="119">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="192.00" position="88.354665,22.569601" type="10" value="3.19" speed="13.99"/>
+        <PET time="198.56" position="88.354665,22.569601" type="17" value="2.04" speed="12.91"/>
+    </conflict>
+    <conflict begin="191.00" end="201.50" ego="119" foe="114">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="192.00" position="88.354665,22.569601" type="11" value="3.19" speed="11.66"/>
+        <PET time="198.56" position="88.354665,22.569601" type="17" value="2.04" speed="7.81"/>
+    </conflict>
+    <conflict begin="194.00" end="205.00" ego="128" foe="109">
+        <minTTC time="197.00" position="88.356944,22.567407" type="3" value="2.41" speed="3.12"/>
+        <maxDRAC time="197.00" position="88.356944,22.567407" type="3" value="0.90" speed="3.12"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="177.00" end="205.50" ego="98" foe="113">
+        <minTTC time="198.00" position="88.355739,22.569140" type="3" value="1.43" speed="0.00"/>
+        <maxDRAC time="197.00" position="88.355739,22.569140" type="3" value="2.61" speed="0.09"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="177.00" end="205.50" ego="113" foe="98">
+        <minTTC time="198.00" position="88.355739,22.569140" type="2" value="1.43" speed="4.98"/>
+        <maxDRAC time="197.00" position="88.355739,22.569140" type="2" value="2.61" speed="8.24"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="170.00" end="206.00" ego="103" foe="110">
+        <minTTC time="180.50" position="88.355933,22.567974" type="2" value="1.54" speed="4.32"/>
+        <maxDRAC time="179.00" position="88.355932,22.567974" type="2" value="2.57" speed="9.54"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="170.00" end="206.00" ego="110" foe="103">
+        <minTTC time="180.50" position="88.355933,22.567974" type="3" value="1.54" speed="0.00"/>
+        <maxDRAC time="179.00" position="88.355932,22.567974" type="3" value="2.57" speed="0.66"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="189.50" end="206.50" ego="80" foe="124">
+        <minTTC time="191.50" position="88.355124,22.567661" type="6" value="2.93" speed="11.11"/>
+        <maxDRAC time="191.50" position="88.355124,22.567661" type="6" value="1.89" speed="11.11"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="189.50" end="206.50" ego="124" foe="80">
+        <minTTC time="191.50" position="88.355124,22.567661" type="7" value="2.93" speed="4.88"/>
+        <maxDRAC time="191.50" position="88.355124,22.567661" type="7" value="1.89" speed="4.88"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="190.00" end="204.00" ego="110" foe="104">
+        <minTTC time="195.50" position="88.355995,22.567926" type="111" value="0.00" speed="3.17"/>
+        <maxDRAC time="195.50" position="88.355995,22.567926" type="11" value="0.00" speed="3.17"/>
+        <PET time="194.09" position="88.355995,22.567926" type="111" value="0.00" speed="5.16"/>
+    </conflict>
+    <conflict begin="196.50" end="209.00" ego="101" foe="103">
+        <minTTC time="198.00" position="88.355904,22.567935" type="11" value="1.34" speed="14.07"/>
+        <maxDRAC time="197.50" position="88.355904,22.567935" type="11" value="4.99" speed="16.32"/>
+        <PET time="204.08" position="88.355971,22.567945" type="17" value="3.00" speed="12.56"/>
+    </conflict>
+    <conflict begin="183.00" end="209.00" ego="120" foe="122">
+        <minTTC time="185.50" position="88.358740,22.568299" type="3" value="2.70" speed="3.64"/>
+        <maxDRAC time="185.50" position="88.358740,22.568299" type="3" value="1.43" speed="3.64"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="189.00" end="201.00" ego="120" foe="77">
+        <minTTC time="191.50" position="88.358605,22.567723" type="7" value="2.19" speed="12.39"/>
+        <maxDRAC time="191.50" position="88.358605,22.567723" type="7" value="2.83" speed="12.39"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="183.00" end="209.00" ego="122" foe="120">
+        <minTTC time="185.50" position="88.358740,22.568299" type="2" value="2.70" speed="11.38"/>
+        <maxDRAC time="185.50" position="88.358740,22.568299" type="2" value="1.43" speed="11.38"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="201.00" end="210.00" ego="124" foe="103">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="203.82" position="88.355971,22.567945" type="111" value="0.00" speed="22.39"/>
+    </conflict>
+    <conflict begin="173.50" end="213.00" ego="95" foe="90">
+        <minTTC time="178.00" position="88.356187,22.567830" type="2" value="1.31" speed="4.49"/>
+        <maxDRAC time="176.00" position="88.356187,22.567830" type="2" value="2.99" speed="10.67"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="194.50" end="213.00" ego="115" foe="118">
+        <minTTC time="201.50" position="88.360106,22.567525" type="6" value="2.75" speed="2.60"/>
+        <maxDRAC time="201.50" position="88.360106,22.567525" type="6" value="1.60" speed="2.60"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="173.50" end="217.00" ego="90" foe="95">
+        <minTTC time="178.00" position="88.356187,22.567830" type="3" value="1.31" speed="0.00"/>
+        <maxDRAC time="176.00" position="88.356187,22.567830" type="3" value="2.99" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="184.00" end="218.00" ego="85" foe="72">
+        <minTTC time="195.50" position="88.360177,22.567607" type="2" value="1.36" speed="4.46"/>
+        <maxDRAC time="193.50" position="88.360177,22.567607" type="2" value="2.88" speed="10.57"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="203.00" end="218.00" ego="85" foe="89">
+        <minTTC time="210.00" position="88.360185,22.567674" type="3" value="1.47" speed="0.00"/>
+        <maxDRAC time="209.00" position="88.360185,22.567674" type="3" value="3.07" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="184.00" end="218.00" ego="72" foe="85">
+        <minTTC time="195.50" position="88.360177,22.567607" type="3" value="1.36" speed="0.00"/>
+        <maxDRAC time="193.50" position="88.360177,22.567607" type="3" value="2.88" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="196.50" end="210.50" ego="103" foe="101">
+        <minTTC time="198.00" position="88.355904,22.567935" type="10" value="1.34" speed="1.12"/>
+        <maxDRAC time="197.50" position="88.355904,22.567935" type="10" value="4.99" speed="2.67"/>
+        <PET time="204.08" position="88.355971,22.567945" type="17" value="3.00" speed="5.56"/>
+    </conflict>
+    <conflict begin="201.00" end="210.00" ego="103" foe="124">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="204.08" position="88.355971,22.567945" type="111" value="0.00" speed="5.56"/>
+    </conflict>
+    <conflict begin="179.00" end="219.00" ego="89" foe="116">
+        <minTTC time="212.50" position="88.360194,22.567746" type="3" value="1.80" speed="0.65"/>
+        <maxDRAC time="212.50" position="88.360194,22.567746" type="3" value="0.97" speed="0.65"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="203.50" end="219.00" ego="89" foe="72">
+        <minTTC time="209.00" position="88.360177,22.567607" type="2" value="2.39" speed="10.14"/>
+        <maxDRAC time="209.00" position="88.360177,22.567607" type="2" value="2.12" speed="10.14"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="203.50" end="218.00" ego="89" foe="85">
+        <minTTC time="210.00" position="88.360185,22.567674" type="2" value="1.47" speed="6.42"/>
+        <maxDRAC time="209.00" position="88.360185,22.567674" type="2" value="3.07" speed="10.14"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="197.50" end="219.00" ego="116" foe="89">
+        <minTTC time="212.50" position="88.360194,22.567746" type="2" value="1.80" speed="4.15"/>
+        <maxDRAC time="212.50" position="88.360194,22.567746" type="2" value="0.97" speed="4.15"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="192.50" end="219.50" ego="90" foe="64">
+        <minTTC time="196.00" position="88.356187,22.567830" type="3" value="2.51" speed="0.00"/>
+        <maxDRAC time="195.50" position="88.356187,22.567830" type="3" value="1.62" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="193.50" end="221.50" ego="122" foe="96">
+        <minTTC time="196.50" position="88.358605,22.567723" type="7" value="1.93" speed="9.03"/>
+        <maxDRAC time="196.00" position="88.358605,22.567723" type="7" value="2.88" speed="11.28"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="193.50" end="223.00" ego="96" foe="122">
+        <minTTC time="196.50" position="88.358605,22.567723" type="6" value="1.93" speed="13.06"/>
+        <maxDRAC time="196.00" position="88.358605,22.567723" type="6" value="2.88" speed="13.33"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="199.00" end="224.00" ego="87" foe="109">
+        <minTTC time="212.50" position="88.356413,22.567663" type="2" value="1.58" speed="5.21"/>
+        <maxDRAC time="211.50" position="88.356415,22.567661" type="2" value="2.25" speed="7.88"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="200.50" end="225.00" ego="72" foe="118">
+        <minTTC time="213.50" position="88.360181,22.567474" type="10" value="0.72" speed="4.24"/>
+        <maxDRAC time="213.50" position="88.360181,22.567474" type="10" value="2.20" speed="4.24"/>
+        <PET time="218.32" position="88.360181,22.567474" type="17" value="3.70" speed="7.29"/>
+    </conflict>
+    <conflict begin="203.00" end="219.00" ego="72" foe="89">
+        <minTTC time="209.00" position="88.360177,22.567607" type="3" value="2.39" speed="0.00"/>
+        <maxDRAC time="209.00" position="88.360177,22.567607" type="3" value="2.12" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="212.00" end="224.00" ego="103" foe="77">
+        <minTTC time="214.50" position="88.356807,22.567340" type="11" value="2.62" speed="9.82"/>
+        <maxDRAC time="215.00" position="88.356840,22.567341" type="10" value="2.86" speed="9.94"/>
+        <PET time="220.44" position="88.356840,22.567341" type="17" value="2.11" speed="12.41"/>
+    </conflict>
+    <conflict begin="199.50" end="226.00" ego="133" foe="87">
+        <minTTC time="201.00" position="88.357054,22.567135" type="7" value="1.46" speed="6.58"/>
+        <maxDRAC time="201.00" position="88.357054,22.567135" type="7" value="2.26" speed="6.58"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="189.00" end="204.00" ego="77" foe="120">
+        <minTTC time="191.50" position="88.358605,22.567723" type="6" value="2.19" speed="14.11"/>
+        <maxDRAC time="191.50" position="88.358605,22.567723" type="6" value="2.83" speed="14.11"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="212.00" end="224.00" ego="77" foe="103">
+        <minTTC time="214.50" position="88.356807,22.567340" type="10" value="2.62" speed="12.68"/>
+        <maxDRAC time="215.00" position="88.356840,22.567341" type="11" value="2.86" speed="10.43"/>
+        <PET time="220.44" position="88.356840,22.567341" type="17" value="2.11" speed="7.59"/>
+    </conflict>
+    <conflict begin="199.50" end="228.00" ego="87" foe="133">
+        <minTTC time="201.00" position="88.357054,22.567135" type="6" value="1.46" speed="8.35"/>
+        <maxDRAC time="201.00" position="88.357054,22.567135" type="6" value="2.26" speed="8.35"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="208.00" end="221.50" ego="87" foe="75">
+        <minTTC time="211.50" position="88.356356,22.567705" type="2" value="2.74" speed="7.88"/>
+        <maxDRAC time="211.50" position="88.356356,22.567705" type="2" value="1.38" speed="7.88"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="209.50" end="226.00" ego="116" foe="118">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="218.00" position="88.360164,22.567510" type="11" value="0.55" speed="4.14"/>
+        <PET time="221.68" position="88.360164,22.567510" type="17" value="1.71" speed="7.09"/>
+    </conflict>
+    <conflict begin="211.50" end="229.00" ego="141" foe="118">
+        <minTTC time="212.00" position="88.360181,22.567374" type="2" value="2.78" speed="10.57"/>
+        <maxDRAC time="211.50" position="88.360180,22.567370" type="2" value="1.89" speed="10.88"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="209.50" end="229.50" ego="116" foe="117">
+        <minTTC time="221.00" position="88.360164,22.567510" type="11" value="0.88" speed="3.70"/>
+        <maxDRAC time="221.00" position="88.360164,22.567510" type="11" value="2.10" speed="3.70"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="215.00" end="229.50" ego="116" foe="97">
+        <minTTC time="221.00" position="88.360174,22.567584" type="3" value="2.83" speed="3.70"/>
+        <maxDRAC time="215.00" position="88.360201,22.567801" type="3" value="1.18" speed="1.77"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="116.00" end="229.50" ego="75" foe="64">
+        <minTTC time="135.50" position="88.360189,22.567419" type="2" value="1.55" speed="5.13"/>
+        <maxDRAC time="199.00" position="88.356304,22.567744" type="2" value="2.31" speed="9.61"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="177.00" end="229.50" ego="117" foe="118">
+        <minTTC time="204.50" position="88.360180,22.567370" type="2" value="1.53" speed="4.66"/>
+        <maxDRAC time="203.50" position="88.360180,22.567370" type="2" value="2.37" speed="8.28"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="209.50" end="229.50" ego="117" foe="116">
+        <minTTC time="221.00" position="88.360164,22.567510" type="10" value="0.88" speed="2.99"/>
+        <maxDRAC time="221.00" position="88.360164,22.567510" type="10" value="2.10" speed="2.99"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="217.00" end="229.50" ego="119" foe="144">
+        <minTTC time="220.50" position="88.357419,22.568888" type="11" value="1.35" speed="11.90"/>
+        <maxDRAC time="220.50" position="88.357419,22.568888" type="11" value="4.41" speed="11.90"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="215.00" end="229.50" ego="132" foe="125">
+        <minTTC time="220.00" position="88.357443,22.568447" type="6" value="1.51" speed="10.03"/>
+        <maxDRAC time="219.50" position="88.357443,22.568447" type="6" value="2.77" speed="9.31"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="215.00" end="229.50" ego="125" foe="132">
+        <minTTC time="220.00" position="88.357443,22.568447" type="7" value="1.51" speed="5.34"/>
+        <maxDRAC time="219.50" position="88.357443,22.568447" type="7" value="2.77" speed="7.39"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="225.00" end="230.50" ego="96" foe="150">
+        <minTTC time="225.50" position="88.356909,22.567349" type="3" value="2.92" speed="3.90"/>
+        <maxDRAC time="225.00" position="88.356907,22.567366" type="3" value="1.14" speed="3.21"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="177.00" end="230.50" ego="118" foe="117">
+        <minTTC time="204.50" position="88.360180,22.567370" type="3" value="1.53" speed="0.01"/>
+        <maxDRAC time="203.50" position="88.360180,22.567370" type="3" value="2.37" speed="0.59"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="196.00" end="212.50" ego="118" foe="115">
+        <minTTC time="201.50" position="88.360106,22.567525" type="7" value="2.75" speed="8.81"/>
+        <maxDRAC time="201.50" position="88.360106,22.567525" type="7" value="1.60" speed="8.81"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="196.00" end="224.00" ego="118" foe="72">
+        <minTTC time="213.50" position="88.360181,22.567474" type="11" value="0.72" speed="3.23"/>
+        <maxDRAC time="213.50" position="88.360181,22.567474" type="11" value="2.20" speed="3.23"/>
+        <PET time="218.32" position="88.360181,22.567474" type="17" value="3.70" speed="5.56"/>
+    </conflict>
+    <conflict begin="209.50" end="228.00" ego="118" foe="116">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="218.00" position="88.360164,22.567510" type="10" value="0.55" speed="1.11"/>
+        <PET time="221.68" position="88.360164,22.567510" type="17" value="1.71" speed="11.12"/>
+    </conflict>
+    <conflict begin="211.50" end="229.50" ego="118" foe="141">
+        <minTTC time="212.00" position="88.360181,22.567374" type="3" value="2.78" speed="1.00"/>
+        <maxDRAC time="211.50" position="88.360180,22.567370" type="3" value="1.89" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="225.00" end="230.50" ego="150" foe="96">
+        <minTTC time="225.50" position="88.356909,22.567349" type="2" value="2.92" speed="10.11"/>
+        <maxDRAC time="225.00" position="88.356907,22.567366" type="2" value="1.14" speed="10.16"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="163.50" end="231.00" ego="109" foe="75">
+        <minTTC time="208.50" position="88.356358,22.567704" type="2" value="1.40" speed="3.69"/>
+        <maxDRAC time="206.50" position="88.356358,22.567704" type="2" value="2.91" speed="9.76"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="192.00" end="202.00" ego="109" foe="128">
+        <minTTC time="197.00" position="88.356944,22.567407" type="2" value="2.41" speed="7.46"/>
+        <maxDRAC time="197.00" position="88.356944,22.567407" type="2" value="0.90" speed="7.46"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="199.00" end="226.00" ego="109" foe="87">
+        <minTTC time="212.50" position="88.356413,22.567663" type="3" value="1.58" speed="0.45"/>
+        <maxDRAC time="211.50" position="88.356415,22.567661" type="3" value="2.25" speed="0.24"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="204.00" end="228.50" ego="109" foe="64">
+        <minTTC time="206.50" position="88.356301,22.567746" type="2" value="2.44" speed="9.76"/>
+        <maxDRAC time="206.50" position="88.356301,22.567746" type="2" value="2.00" speed="9.76"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="222.00" end="232.50" ego="102" foe="117">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="228.24" position="88.360181,22.567474" type="17" value="1.28" speed="17.54"/>
+    </conflict>
+    <conflict begin="215.00" end="229.50" ego="97" foe="116">
+        <minTTC time="221.00" position="88.360174,22.567584" type="2" value="2.83" speed="9.95"/>
+        <maxDRAC time="215.00" position="88.360201,22.567801" type="2" value="1.18" speed="12.37"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="220.00" end="232.50" ego="144" foe="119">
+        <minTTC time="220.50" position="88.357419,22.568888" type="10" value="1.35" speed="6.50"/>
+        <maxDRAC time="220.50" position="88.357419,22.568888" type="10" value="4.41" speed="6.50"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="163.50" end="233.50" ego="75" foe="109">
+        <minTTC time="208.50" position="88.356358,22.567704" type="3" value="1.40" speed="0.01"/>
+        <maxDRAC time="206.50" position="88.356358,22.567704" type="3" value="2.91" speed="0.01"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="176.00" end="190.00" ego="75" foe="111">
+        <minTTC time="176.00" position="88.357614,22.567709" type="11" value="3.01" speed="10.15"/>
+        <maxDRAC time="177.50" position="88.357584,22.567709" type="10" value="1.80" speed="7.45"/>
+        <PET time="183.89" position="88.357614,22.567709" type="17" value="1.56" speed="7.24"/>
+    </conflict>
+    <conflict begin="197.00" end="225.00" ego="75" foe="95">
+        <minTTC time="199.00" position="88.356244,22.567788" type="2" value="2.62" speed="9.61"/>
+        <maxDRAC time="198.50" position="88.356244,22.567788" type="2" value="2.01" speed="10.98"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="208.00" end="226.00" ego="75" foe="87">
+        <minTTC time="211.50" position="88.356356,22.567705" type="3" value="2.74" speed="0.31"/>
+        <maxDRAC time="211.50" position="88.356356,22.567705" type="3" value="1.38" speed="0.31"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="218.50" end="234.50" ego="97" foe="117">
+        <minTTC time="221.00" position="88.360164,22.567510" type="11" value="2.61" speed="9.95"/>
+        <maxDRAC time="221.00" position="88.360164,22.567510" type="11" value="1.91" speed="9.95"/>
+        <PET time="228.24" position="88.360181,22.567474" type="17" value="3.39" speed="18.43"/>
+    </conflict>
+    <conflict begin="192.00" end="235.00" ego="95" foe="64">
+        <minTTC time="197.50" position="88.356244,22.567788" type="3" value="1.42" speed="0.00"/>
+        <maxDRAC time="196.00" position="88.356244,22.567788" type="3" value="2.50" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="197.00" end="225.00" ego="95" foe="75">
+        <minTTC time="199.00" position="88.356244,22.567788" type="3" value="2.62" speed="0.00"/>
+        <maxDRAC time="198.50" position="88.356244,22.567788" type="3" value="2.01" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="227.00" end="236.00" ego="120" foe="146">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="232.57" position="88.355353,22.568436" type="17" value="1.51" speed="10.27"/>
+    </conflict>
+    <conflict begin="115.50" end="237.00" ego="64" foe="75">
+        <minTTC time="135.50" position="88.360189,22.567419" type="3" value="1.55" speed="0.15"/>
+        <maxDRAC time="199.00" position="88.356304,22.567744" type="3" value="2.31" speed="0.67"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="129.50" end="142.50" ego="64" foe="48">
+        <minTTC time="133.50" position="88.360181,22.567474" type="11" value="0.92" speed="8.48"/>
+        <maxDRAC time="134.50" position="88.360181,22.567474" type="11" value="3.70" speed="4.35"/>
+        <PET time="139.83" position="88.360181,22.567474" type="17" value="4.11" speed="6.11"/>
+    </conflict>
+    <conflict begin="130.00" end="142.50" ego="64" foe="84">
+        <minTTC time="132.50" position="88.360106,22.567525" type="7" value="2.12" speed="12.88"/>
+        <maxDRAC time="132.00" position="88.360106,22.567525" type="7" value="3.39" speed="15.13"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="134.00" end="146.50" ego="64" foe="40">
+        <minTTC time="134.00" position="88.360164,22.567510" type="10" value="6.18" speed="6.51"/>
+        <maxDRAC time="134.50" position="88.360181,22.567474" type="11" value="1.32" speed="4.35"/>
+        <PET time="139.83" position="88.360181,22.567474" type="17" value="1.24" speed="6.11"/>
+    </conflict>
+    <conflict begin="192.00" end="237.00" ego="64" foe="95">
+        <minTTC time="197.50" position="88.356244,22.567788" type="2" value="1.42" speed="3.39"/>
+        <maxDRAC time="196.00" position="88.356244,22.567788" type="2" value="2.50" speed="7.62"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="192.50" end="213.00" ego="64" foe="90">
+        <minTTC time="196.00" position="88.356187,22.567830" type="2" value="2.51" speed="7.62"/>
+        <maxDRAC time="195.50" position="88.356187,22.567830" type="2" value="1.62" speed="8.62"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="204.00" end="228.50" ego="64" foe="109">
+        <minTTC time="206.50" position="88.356301,22.567746" type="3" value="2.44" speed="0.00"/>
+        <maxDRAC time="206.50" position="88.356301,22.567746" type="3" value="2.00" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="224.50" end="238.50" ego="139" foe="149">
+        <minTTC time="227.00" position="88.356200,22.570998" type="6" value="2.60" speed="13.50"/>
+        <maxDRAC time="226.50" position="88.356200,22.570998" type="6" value="2.30" speed="13.35"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="224.50" end="238.50" ego="149" foe="139">
+        <minTTC time="227.00" position="88.356200,22.570998" type="7" value="2.60" speed="7.85"/>
+        <maxDRAC time="226.50" position="88.356200,22.570998" type="7" value="2.30" speed="10.10"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="228.50" end="238.50" ego="146" foe="120">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="232.57" position="88.355353,22.568436" type="17" value="1.51" speed="12.29"/>
+    </conflict>
+    <conflict begin="230.00" end="240.00" ego="75" foe="119">
+        <minTTC time="234.50" position="88.357354,22.568894" type="2" value="1.41" speed="6.39"/>
+        <maxDRAC time="233.50" position="88.357354,22.568894" type="2" value="2.38" speed="8.71"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="230.00" end="240.00" ego="119" foe="75">
+        <minTTC time="234.50" position="88.357354,22.568894" type="3" value="1.41" speed="0.00"/>
+        <maxDRAC time="233.50" position="88.357354,22.568894" type="3" value="2.38" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="205.00" end="243.00" ego="130" foe="131">
+        <minTTC time="218.00" position="88.360052,22.566766" type="2" value="1.65" speed="3.75"/>
+        <maxDRAC time="209.00" position="88.359961,22.566438" type="2" value="1.58" speed="9.52"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="222.50" end="240.00" ego="130" foe="141">
+        <minTTC time="227.00" position="88.360177,22.567353" type="2" value="2.97" speed="6.80"/>
+        <maxDRAC time="225.50" position="88.360177,22.567352" type="2" value="1.56" speed="10.05"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="238.50" end="245.00" ego="139" foe="147">
+        <minTTC time="240.00" position="88.355670,22.569403" type="2" value="1.92" speed="12.65"/>
+        <maxDRAC time="239.00" position="88.355670,22.569403" type="2" value="3.56" speed="16.43"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="240.50" end="251.00" ego="99" foe="145">
+        <minTTC time="241.00" position="88.355297,22.567641" type="7" value="2.94" speed="11.96"/>
+        <maxDRAC time="241.00" position="88.355297,22.567641" type="7" value="3.06" speed="11.96"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="240.50" end="251.00" ego="145" foe="99">
+        <minTTC time="241.00" position="88.355297,22.567641" type="6" value="2.94" speed="18.00"/>
+        <maxDRAC time="241.00" position="88.355297,22.567641" type="6" value="3.06" speed="18.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="248.50" end="254.00" ego="143" foe="146">
+        <minTTC time="252.00" position="88.357388,22.567743" type="3" value="2.99" speed="3.03"/>
+        <maxDRAC time="252.00" position="88.357388,22.567743" type="3" value="1.93" speed="3.03"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="238.50" end="248.50" ego="147" foe="139">
+        <minTTC time="240.00" position="88.355670,22.569403" type="3" value="1.92" speed="0.00"/>
+        <maxDRAC time="239.00" position="88.355670,22.569403" type="3" value="3.56" speed="0.04"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="205.00" end="254.50" ego="131" foe="130">
+        <minTTC time="218.00" position="88.360052,22.566766" type="3" value="1.65" speed="0.25"/>
+        <maxDRAC time="209.00" position="88.359961,22.566438" type="3" value="1.58" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="219.50" end="236.00" ego="131" foe="117">
+        <minTTC time="225.50" position="88.360189,22.567419" type="2" value="2.38" speed="8.90"/>
+        <maxDRAC time="224.50" position="88.360189,22.567419" type="2" value="2.16" speed="11.50"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="219.50" end="238.00" ego="131" foe="141">
+        <minTTC time="226.50" position="88.360177,22.567353" type="2" value="1.39" speed="5.50"/>
+        <maxDRAC time="225.50" position="88.360177,22.567352" type="2" value="2.86" speed="8.90"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="243.50" end="254.50" ego="160" foe="146">
+        <minTTC time="247.00" position="88.356782,22.567338" type="11" value="1.72" speed="10.63"/>
+        <maxDRAC time="247.50" position="88.356782,22.567338" type="11" value="2.52" speed="8.41"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="244.00" end="257.00" ego="87" foe="158">
+        <minTTC time="248.00" position="88.355188,22.566709" type="6" value="2.17" speed="10.13"/>
+        <maxDRAC time="247.50" position="88.355188,22.566709" type="6" value="2.36" speed="10.27"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="246.50" end="258.00" ego="154" foe="145">
+        <minTTC time="248.00" position="88.355971,22.567945" type="11" value="2.10" speed="12.54"/>
+        <maxDRAC time="248.00" position="88.355971,22.567945" type="11" value="2.99" speed="12.54"/>
+        <PET time="252.58" position="88.355971,22.567945" type="17" value="3.18" speed="5.74"/>
+    </conflict>
+    <conflict begin="249.50" end="258.00" ego="162" foe="160">
+        <minTTC time="253.00" position="88.356702,22.567249" type="2" value="1.63" speed="8.02"/>
+        <maxDRAC time="252.50" position="88.356702,22.567249" type="2" value="2.69" speed="9.59"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="248.50" end="259.00" ego="154" foe="115">
+        <minTTC time="251.00" position="88.356192,22.567854" type="10" value="1.30" speed="3.29"/>
+        <maxDRAC time="250.50" position="88.356192,22.567854" type="10" value="3.40" speed="5.54"/>
+        <PET time="252.58" position="88.355971,22.567945" type="111" value="0.00" speed="5.74"/>
+    </conflict>
+    <conflict begin="248.50" end="261.00" ego="115" foe="154">
+        <minTTC time="251.00" position="88.356192,22.567854" type="11" value="1.30" speed="11.87"/>
+        <maxDRAC time="250.50" position="88.356192,22.567854" type="11" value="3.40" speed="12.06"/>
+        <PET time="252.32" position="88.355971,22.567945" type="111" value="0.00" speed="11.70"/>
+    </conflict>
+    <conflict begin="243.00" end="261.50" ego="123" foe="146">
+        <minTTC time="260.50" position="88.357474,22.567382" type="3" value="2.29" speed="1.99"/>
+        <maxDRAC time="260.00" position="88.357483,22.567386" type="3" value="1.55" speed="2.16"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="243.00" end="261.50" ego="146" foe="123">
+        <minTTC time="260.50" position="88.357474,22.567382" type="2" value="2.29" speed="7.83"/>
+        <maxDRAC time="260.00" position="88.357483,22.567386" type="2" value="1.55" speed="9.26"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="243.50" end="257.00" ego="146" foe="160">
+        <minTTC time="247.00" position="88.356782,22.567338" type="10" value="1.72" speed="10.85"/>
+        <maxDRAC time="247.50" position="88.356782,22.567338" type="10" value="2.52" speed="8.60"/>
+        <PET time="255.71" position="88.356782,22.567338" type="17" value="6.76" speed="7.10"/>
+    </conflict>
+    <conflict begin="248.50" end="254.00" ego="146" foe="143">
+        <minTTC time="252.00" position="88.357388,22.567743" type="2" value="2.99" speed="14.55"/>
+        <maxDRAC time="252.00" position="88.357388,22.567743" type="2" value="1.93" speed="14.55"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="249.50" end="261.50" ego="160" foe="162">
+        <minTTC time="253.00" position="88.356702,22.567249" type="3" value="1.63" speed="0.00"/>
+        <maxDRAC time="252.50" position="88.356702,22.567249" type="3" value="2.69" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="242.50" end="273.00" ego="161" foe="158">
+        <minTTC time="250.50" position="88.355207,22.566593" type="2" value="2.14" speed="13.55"/>
+        <maxDRAC time="250.50" position="88.355207,22.566593" type="2" value="3.16" speed="13.55"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="241.50" end="274.00" ego="158" foe="161">
+        <minTTC time="250.50" position="88.355207,22.566593" type="3" value="2.14" speed="0.00"/>
+        <maxDRAC time="250.50" position="88.355207,22.566593" type="3" value="3.16" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="244.00" end="257.00" ego="158" foe="87">
+        <minTTC time="248.00" position="88.355188,22.566709" type="7" value="2.17" speed="6.75"/>
+        <maxDRAC time="247.50" position="88.355188,22.566709" type="7" value="2.36" speed="9.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="238.50" end="274.50" ego="130" foe="132">
+        <minTTC time="264.50" position="88.360181,22.567474" type="11" value="0.54" speed="2.80"/>
+        <maxDRAC time="264.50" position="88.360181,22.567474" type="11" value="2.15" speed="2.80"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="238.50" end="276.00" ego="132" foe="130">
+        <minTTC time="264.50" position="88.360181,22.567474" type="10" value="0.54" speed="4.13"/>
+        <maxDRAC time="264.50" position="88.360181,22.567474" type="10" value="2.15" speed="4.13"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="253.50" end="276.00" ego="136" foe="133">
+        <minTTC time="264.00" position="88.360193,22.567742" type="2" value="1.59" speed="5.93"/>
+        <maxDRAC time="263.50" position="88.360194,22.567745" type="2" value="2.16" speed="7.39"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="253.50" end="277.00" ego="133" foe="136">
+        <minTTC time="264.00" position="88.360193,22.567742" type="3" value="1.59" speed="0.60"/>
+        <maxDRAC time="263.50" position="88.360194,22.567745" type="3" value="2.16" speed="0.46"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="254.50" end="274.50" ego="133" foe="125">
+        <minTTC time="261.50" position="88.360185,22.567674" type="2" value="1.35" speed="4.55"/>
+        <maxDRAC time="259.50" position="88.360185,22.567674" type="2" value="3.05" speed="10.79"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="254.50" end="274.50" ego="133" foe="132">
+        <minTTC time="259.50" position="88.360177,22.567607" type="2" value="2.46" speed="10.79"/>
+        <maxDRAC time="259.50" position="88.360177,22.567607" type="2" value="2.19" speed="10.79"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="269.50" end="277.50" ego="147" foe="161">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="273.98" position="88.355211,22.567611" type="17" value="1.42" speed="9.50"/>
+    </conflict>
+    <conflict begin="269.50" end="278.00" ego="161" foe="147">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="273.98" position="88.355211,22.567611" type="17" value="1.42" speed="25.59"/>
+    </conflict>
+    <conflict begin="235.50" end="279.00" ego="118" foe="138">
+        <minTTC time="274.50" position="88.356187,22.567830" type="2" value="1.56" speed="3.83"/>
+        <maxDRAC time="274.50" position="88.356187,22.567830" type="2" value="1.17" speed="3.83"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="240.00" end="279.00" ego="132" foe="125">
+        <minTTC time="248.50" position="88.360177,22.567607" type="3" value="1.40" speed="0.00"/>
+        <maxDRAC time="246.50" position="88.360177,22.567607" type="3" value="3.10" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="254.00" end="273.50" ego="132" foe="133">
+        <minTTC time="259.50" position="88.360177,22.567607" type="3" value="2.46" speed="0.00"/>
+        <maxDRAC time="259.50" position="88.360177,22.567607" type="3" value="2.19" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="240.00" end="279.00" ego="125" foe="132">
+        <minTTC time="248.50" position="88.360177,22.567607" type="2" value="1.40" speed="5.38"/>
+        <maxDRAC time="246.50" position="88.360177,22.567607" type="2" value="3.10" speed="11.96"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="254.00" end="275.50" ego="125" foe="133">
+        <minTTC time="261.50" position="88.360185,22.567674" type="3" value="1.35" speed="0.00"/>
+        <maxDRAC time="259.50" position="88.360185,22.567674" type="3" value="3.05" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="235.00" end="279.00" ego="138" foe="118">
+        <minTTC time="274.50" position="88.356187,22.567830" type="3" value="1.56" speed="0.16"/>
+        <maxDRAC time="274.50" position="88.356187,22.567830" type="3" value="1.17" speed="0.16"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="211.50" end="285.50" ego="141" foe="117">
+        <minTTC time="212.50" position="88.360169,22.567305" type="2" value="1.74" speed="8.71"/>
+        <maxDRAC time="212.00" position="88.360169,22.567303" type="2" value="3.00" speed="10.57"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="219.50" end="242.50" ego="141" foe="131">
+        <minTTC time="226.50" position="88.360177,22.567353" type="3" value="1.39" speed="0.02"/>
+        <maxDRAC time="225.50" position="88.360177,22.567352" type="3" value="2.86" speed="0.06"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="222.50" end="241.00" ego="141" foe="130">
+        <minTTC time="227.00" position="88.360177,22.567353" type="3" value="2.97" speed="0.01"/>
+        <maxDRAC time="225.50" position="88.360177,22.567352" type="3" value="1.56" speed="0.06"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="268.50" end="286.00" ego="173" foe="130">
+        <minTTC time="271.00" position="88.360189,22.567419" type="2" value="2.44" speed="11.93"/>
+        <maxDRAC time="270.00" position="88.360189,22.567419" type="2" value="2.96" speed="15.73"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="261.00" end="286.50" ego="174" foe="130">
+        <minTTC time="265.00" position="88.360189,22.567419" type="2" value="1.55" speed="4.66"/>
+        <maxDRAC time="261.50" position="88.360180,22.567370" type="2" value="3.17" speed="12.62"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="258.00" end="287.00" ego="125" foe="136">
+        <minTTC time="262.50" position="88.360185,22.567674" type="3" value="2.63" speed="0.00"/>
+        <maxDRAC time="262.50" position="88.360185,22.567674" type="3" value="1.95" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="261.00" end="287.50" ego="130" foe="174">
+        <minTTC time="265.00" position="88.360189,22.567419" type="3" value="1.55" speed="0.55"/>
+        <maxDRAC time="261.50" position="88.360180,22.567370" type="3" value="3.17" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="265.50" end="281.00" ego="130" foe="169">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="275.40" position="88.360181,22.567474" type="17" value="1.36" speed="6.25"/>
+    </conflict>
+    <conflict begin="268.50" end="286.50" ego="130" foe="173">
+        <minTTC time="271.00" position="88.360189,22.567419" type="3" value="2.44" speed="0.00"/>
+        <maxDRAC time="270.00" position="88.360189,22.567419" type="3" value="2.96" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="276.50" end="287.50" ego="164" foe="152">
+        <minTTC time="277.50" position="88.360176,22.567598" type="3" value="1.64" speed="0.00"/>
+        <maxDRAC time="277.00" position="88.360176,22.567598" type="3" value="3.30" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="272.50" end="288.00" ego="171" foe="149">
+        <minTTC time="277.00" position="88.356938,22.568511" type="2" value="1.40" speed="4.66"/>
+        <maxDRAC time="275.00" position="88.356938,22.568511" type="2" value="3.28" speed="11.62"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="211.50" end="289.50" ego="117" foe="141">
+        <minTTC time="212.50" position="88.360169,22.567305" type="3" value="1.74" speed="0.40"/>
+        <maxDRAC time="212.00" position="88.360169,22.567303" type="3" value="3.00" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="218.50" end="233.00" ego="117" foe="97">
+        <minTTC time="221.00" position="88.360164,22.567510" type="10" value="2.61" speed="2.99"/>
+        <maxDRAC time="221.00" position="88.360164,22.567510" type="10" value="1.91" speed="2.99"/>
+        <PET time="228.24" position="88.360181,22.567474" type="17" value="3.39" speed="5.48"/>
+    </conflict>
+    <conflict begin="219.50" end="240.00" ego="117" foe="131">
+        <minTTC time="225.50" position="88.360189,22.567419" type="3" value="2.38" speed="0.00"/>
+        <maxDRAC time="224.50" position="88.360189,22.567419" type="3" value="2.16" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="222.00" end="232.50" ego="117" foe="102">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="228.24" position="88.360181,22.567474" type="17" value="1.28" speed="5.48"/>
+    </conflict>
+    <conflict begin="272.50" end="290.50" ego="149" foe="171">
+        <minTTC time="277.00" position="88.356938,22.568511" type="3" value="1.40" speed="0.00"/>
+        <maxDRAC time="275.00" position="88.356938,22.568511" type="3" value="3.28" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="254.50" end="292.50" ego="127" foe="159">
+        <minTTC time="286.00" position="88.354655,22.569481" type="2" value="1.36" speed="4.84"/>
+        <maxDRAC time="285.00" position="88.354655,22.569480" type="2" value="2.14" speed="7.81"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="284.00" end="293.00" ego="149" foe="155">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="289.38" position="88.357400,22.568466" type="17" value="1.74" speed="12.99"/>
+    </conflict>
+    <conflict begin="285.00" end="294.50" ego="138" foe="171">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="291.27" position="88.356923,22.568432" type="17" value="1.67" speed="10.90"/>
+    </conflict>
+    <conflict begin="284.00" end="294.50" ego="155" foe="149">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="289.38" position="88.357400,22.568466" type="17" value="1.74" speed="7.55"/>
+    </conflict>
+    <conflict begin="285.00" end="294.50" ego="171" foe="138">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="291.27" position="88.356923,22.568432" type="17" value="1.67" speed="5.87"/>
+    </conflict>
+    <conflict begin="283.50" end="295.00" ego="177" foe="175">
+        <minTTC time="286.50" position="88.356057,22.566680" type="10" value="2.00" speed="9.25"/>
+        <maxDRAC time="287.00" position="88.356064,22.566701" type="11" value="1.96" speed="7.00"/>
+        <PET time="290.97" position="88.356064,22.566701" type="17" value="1.10" speed="6.61"/>
+    </conflict>
+    <conflict begin="254.50" end="296.00" ego="159" foe="127">
+        <minTTC time="286.00" position="88.354655,22.569481" type="3" value="1.36" speed="0.03"/>
+        <maxDRAC time="285.00" position="88.354655,22.569480" type="3" value="2.14" speed="0.70"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="283.50" end="294.00" ego="159" foe="182">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="283.50" position="88.354650,22.569591" type="11" value="1.88" speed="6.63"/>
+        <PET time="290.31" position="88.354650,22.569591" type="17" value="1.48" speed="7.16"/>
+    </conflict>
+    <conflict begin="283.50" end="296.50" ego="182" foe="159">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="283.50" position="88.354650,22.569591" type="10" value="1.88" speed="13.97"/>
+        <PET time="290.31" position="88.354650,22.569591" type="17" value="1.48" speed="13.37"/>
+    </conflict>
+    <conflict begin="283.50" end="297.50" ego="175" foe="177">
+        <minTTC time="286.50" position="88.356057,22.566680" type="11" value="2.00" speed="10.57"/>
+        <maxDRAC time="287.00" position="88.356064,22.566701" type="10" value="1.96" speed="10.19"/>
+        <PET time="290.97" position="88.356064,22.566701" type="17" value="1.10" speed="10.63"/>
+    </conflict>
+    <conflict begin="287.50" end="298.00" ego="190" foe="170">
+        <minTTC time="292.50" position="88.355670,22.569403" type="2" value="1.50" speed="5.19"/>
+        <maxDRAC time="292.50" position="88.355670,22.569403" type="2" value="1.58" speed="5.19"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="283.50" end="298.50" ego="127" foe="182">
+        <minTTC time="285.00" position="88.354631,22.569531" type="7" value="2.86" speed="7.81"/>
+        <maxDRAC time="285.00" position="88.354631,22.569531" type="7" value="2.40" speed="7.81"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="288.50" end="298.50" ego="117" foe="191">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="288.50" position="88.355754,22.569216" type="11" value="3.51" speed="10.18"/>
+        <PET time="295.25" position="88.355754,22.569216" type="17" value="1.90" speed="7.06"/>
+    </conflict>
+    <conflict begin="283.50" end="298.50" ego="182" foe="127">
+        <minTTC time="285.00" position="88.354631,22.569531" type="6" value="2.86" speed="13.70"/>
+        <maxDRAC time="285.00" position="88.354631,22.569531" type="6" value="2.40" speed="13.70"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="288.50" end="298.50" ego="191" foe="117">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="288.50" position="88.355754,22.569216" type="10" value="3.51" speed="15.41"/>
+        <PET time="295.25" position="88.355754,22.569216" type="17" value="1.90" speed="15.21"/>
+    </conflict>
+    <conflict begin="292.50" end="299.50" ego="117" foe="178">
+        <minTTC time="293.00" position="88.355739,22.569140" type="3" value="2.81" speed="0.00"/>
+        <maxDRAC time="293.00" position="88.355739,22.569140" type="3" value="2.43" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="254.00" end="299.50" ego="136" foe="169">
+        <minTTC time="278.00" position="88.360093,22.567105" type="3" value="1.73" speed="0.19"/>
+        <maxDRAC time="259.00" position="88.360142,22.568136" type="3" value="1.48" speed="6.24"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="258.50" end="282.00" ego="136" foe="125">
+        <minTTC time="262.50" position="88.360185,22.567674" type="2" value="2.63" speed="10.24"/>
+        <maxDRAC time="262.50" position="88.360185,22.567674" type="2" value="1.95" speed="10.24"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="281.00" end="299.50" ego="136" foe="152">
+        <minTTC time="284.00" position="88.360093,22.567105" type="3" value="2.55" speed="0.00"/>
+        <maxDRAC time="283.50" position="88.360093,22.567105" type="3" value="1.98" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="288.50" end="299.50" ego="138" foe="185">
+        <minTTC time="289.50" position="88.357105,22.568951" type="11" value="7.00" speed="8.10"/>
+        <maxDRAC time="292.00" position="88.357115,22.568958" type="10" value="2.44" speed="10.87"/>
+        <PET time="297.04" position="88.357115,22.568958" type="17" value="1.31" speed="10.59"/>
+    </conflict>
+    <conflict begin="226.50" end="299.50" ego="142" foe="151">
+        <minTTC time="298.50" position="88.356941,22.567404" type="2" value="2.50" speed="8.49"/>
+        <maxDRAC time="297.50" position="88.356941,22.567404" type="2" value="2.02" speed="11.09"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="289.50" end="299.50" ego="142" foe="193">
+        <minTTC time="299.00" position="88.356991,22.567455" type="2" value="1.49" speed="6.94"/>
+        <maxDRAC time="298.00" position="88.356992,22.567456" type="2" value="2.64" speed="10.10"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="226.50" end="299.50" ego="151" foe="142">
+        <minTTC time="298.50" position="88.356941,22.567404" type="3" value="2.50" speed="0.00"/>
+        <maxDRAC time="297.50" position="88.356941,22.567404" type="3" value="2.02" speed="0.00"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="289.50" end="299.50" ego="151" foe="193">
+        <minTTC time="296.00" position="88.356941,22.567404" type="3" value="1.58" speed="0.06"/>
+        <maxDRAC time="295.50" position="88.356941,22.567404" type="3" value="1.28" speed="0.26"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="290.00" end="299.50" ego="151" foe="188">
+        <minTTC time="293.00" position="88.356882,22.567337" type="11" value="1.43" speed="11.51"/>
+        <maxDRAC time="293.00" position="88.356882,22.567337" type="11" value="2.42" speed="11.51"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="272.00" end="299.50" ego="152" foe="169">
+        <minTTC time="284.00" position="88.360106,22.567171" type="2" value="1.74" speed="9.19"/>
+        <maxDRAC time="283.50" position="88.360106,22.567171" type="2" value="2.70" speed="10.54"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="275.00" end="292.00" ego="152" foe="174">
+        <minTTC time="277.00" position="88.360164,22.567510" type="11" value="2.62" speed="11.81"/>
+        <maxDRAC time="278.00" position="88.360164,22.567510" type="11" value="1.48" speed="8.06"/>
+        <PET time="283.80" position="88.360181,22.567474" type="17" value="1.35" speed="0.77"/>
+    </conflict>
+    <conflict begin="276.50" end="286.50" ego="152" foe="164">
+        <minTTC time="277.50" position="88.360176,22.567598" type="2" value="1.64" speed="9.86"/>
+        <maxDRAC time="277.00" position="88.360176,22.567598" type="2" value="3.30" speed="11.81"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="281.00" end="299.50" ego="152" foe="136">
+        <minTTC time="284.00" position="88.360093,22.567105" type="2" value="2.55" speed="9.19"/>
+        <maxDRAC time="283.50" position="88.360093,22.567105" type="2" value="1.98" speed="10.54"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="257.00" end="299.50" ego="169" foe="136">
+        <minTTC time="278.00" position="88.360093,22.567105" type="2" value="1.73" speed="3.46"/>
+        <maxDRAC time="259.00" position="88.360142,22.568136" type="2" value="1.48" speed="16.42"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="265.50" end="283.00" ego="169" foe="130">
+        <minTTC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <maxDRAC time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+        <PET time="275.40" position="88.360181,22.567474" type="17" value="1.36" speed="4.77"/>
+    </conflict>
+    <conflict begin="271.50" end="299.50" ego="169" foe="152">
+        <minTTC time="284.00" position="88.360106,22.567171" type="3" value="1.74" speed="0.01"/>
+        <maxDRAC time="283.50" position="88.360106,22.567171" type="3" value="2.70" speed="0.01"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="287.50" end="299.50" ego="170" foe="190">
+        <minTTC time="292.50" position="88.355670,22.569403" type="3" value="1.50" speed="0.45"/>
+        <maxDRAC time="292.50" position="88.355670,22.569403" type="3" value="1.58" speed="0.45"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="268.50" end="299.50" ego="173" foe="174">
+        <minTTC time="272.50" position="88.360177,22.567353" type="2" value="1.42" speed="6.63"/>
+        <maxDRAC time="270.00" position="88.360177,22.567352" type="2" value="3.59" speed="15.73"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="268.50" end="299.50" ego="174" foe="173">
+        <minTTC time="272.50" position="88.360177,22.567353" type="3" value="1.42" speed="0.00"/>
+        <maxDRAC time="270.00" position="88.360177,22.567352" type="3" value="3.59" speed="0.02"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="275.00" end="293.50" ego="174" foe="152">
+        <minTTC time="277.00" position="88.360164,22.567510" type="10" value="2.62" speed="3.12"/>
+        <maxDRAC time="278.00" position="88.360164,22.567510" type="10" value="1.48" speed="3.19"/>
+        <PET time="283.80" position="88.360181,22.567474" type="17" value="1.35" speed="5.63"/>
+    </conflict>
+    <conflict begin="292.50" end="299.50" ego="178" foe="117">
+        <minTTC time="293.00" position="88.355739,22.569140" type="2" value="2.81" speed="13.65"/>
+        <maxDRAC time="293.00" position="88.355739,22.569140" type="2" value="2.43" speed="13.65"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="288.50" end="299.50" ego="185" foe="138">
+        <minTTC time="289.50" position="88.357105,22.568951" type="10" value="7.00" speed="4.87"/>
+        <maxDRAC time="292.00" position="88.357115,22.568958" type="11" value="2.44" speed="6.94"/>
+        <PET time="297.04" position="88.357115,22.568958" type="17" value="1.31" speed="6.60"/>
+    </conflict>
+    <conflict begin="290.00" end="299.50" ego="188" foe="151">
+        <minTTC time="293.00" position="88.356882,22.567337" type="10" value="1.43" speed="8.60"/>
+        <maxDRAC time="293.00" position="88.356882,22.567337" type="10" value="2.42" speed="8.60"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="289.50" end="299.50" ego="193" foe="142">
+        <minTTC time="299.00" position="88.356991,22.567455" type="3" value="1.49" speed="0.14"/>
+        <maxDRAC time="298.00" position="88.356992,22.567456" type="3" value="2.64" speed="0.45"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+    <conflict begin="289.50" end="299.50" ego="193" foe="151">
+        <minTTC time="296.00" position="88.356941,22.567404" type="2" value="1.58" speed="3.49"/>
+        <maxDRAC time="295.50" position="88.356941,22.567404" type="2" value="1.28" speed="4.53"/>
+        <PET time="NA" position="NA" type="NA" value="NA" speed="NA"/>
+    </conflict>
+</SSMLog>

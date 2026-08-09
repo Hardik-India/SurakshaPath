@@ -1,0 +1,11 @@
+<configuration>
+  <input>
+    <net-file value="subnet_13300645527.net.xml"/>
+    <route-files value="subnet_13300645527_trips.trips.xml"/>
+  </input>
+  <time>
+    <begin value="0"/>
+    <end value="300"/>
+    <step-length value="0.5"/>
+  </time>
+</configuration>
