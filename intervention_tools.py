@@ -37,6 +37,23 @@ def apply_signal_retiming(net_file, node_id, output_file, green_multiplier=1.3):
     """Signal retiming simulation: extend green phase duration at this junction's traffic light."""
     net = sumolib.net.readNet(net_file)
 
+def apply_add_signal(net_file, node_id, output_file):
+    """Converts an unsignalized junction into a signal-controlled one using netconvert's built-in TLS conversion."""
+    cmd = [
+        "netconvert",
+        "--sumo-net-file", net_file,
+        "--tls.set", node_id,
+        "--tls.default-type", "actuated",
+        "-o", output_file,
+        "--no-warnings", "true"
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+    if result.returncode != 0:
+        print(f"  ERROR adding signal: {result.stderr[-500:]}")
+        return None
+    print(f"  Converted junction '{node_id}' to a signal-controlled junction.")
+    return output_file
+
     # Find the tlLogic ID that actually controls this node
     tls_id_for_node = None
     for tls in net.getTrafficLights():
@@ -115,3 +132,46 @@ def run_scenario(net_file, sumocfg, node_id, intervention_type, scenario_tag):
         return None
 
     return ssm_output
+
+def apply_turn_restriction(net_file, node_id, output_file, banned_dir="l"):
+    """Removes connections matching a turn direction by decompiling the network to plain XML,
+    editing connections there, and recompiling — avoids crashes from editing compiled net.xml directly."""
+    prefix = output_file.replace(".net.xml", "") + "_plain"
+
+    decompile_cmd = ["netconvert", "--sumo-net-file", net_file, "--plain-output-prefix", prefix, "--no-warnings", "true"]
+    r1 = subprocess.run(decompile_cmd, capture_output=True, text=True, timeout=60)
+    if r1.returncode != 0:
+        print(f"  ERROR decompiling network: {r1.stderr[-400:]}")
+        return None
+
+    con_file = prefix + ".con.xml"
+    net = sumolib.net.readNet(net_file)
+    node = net.getNode(node_id)
+    connected_edge_ids = {e.getID() for e in node.getIncoming()}
+
+    tree = ET.parse(con_file)
+    root = tree.getroot()
+    removed = 0
+    for conn in list(root.findall("connection")):
+        if conn.get("from") in connected_edge_ids and conn.get("dir") == banned_dir:
+            root.remove(conn)
+            removed += 1
+    tree.write(con_file, encoding="UTF-8", xml_declaration=True)
+
+    recompile_cmd = [
+        "netconvert",
+        "--node-files", prefix + ".nod.xml",
+        "--edge-files", prefix + ".edg.xml",
+        "--connection-files", con_file,
+        "--tllogic-files", prefix + ".tll.xml",
+        "--type-files", prefix + ".typ.xml",
+        "-o", output_file,
+        "--no-warnings", "true"
+    ]
+    r2 = subprocess.run(recompile_cmd, capture_output=True, text=True, timeout=60)
+    if r2.returncode != 0:
+        print(f"  ERROR recompiling network: {r2.stderr[-400:]}")
+        return None
+
+    print(f"  Removed {removed} '{banned_dir}' connections at junction {node_id} (safely recompiled).")
+    return output_file

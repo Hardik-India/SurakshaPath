@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+STOP_SIMULATION
+sumo_warnings.log
+sumo_error_log.txt
+*.log

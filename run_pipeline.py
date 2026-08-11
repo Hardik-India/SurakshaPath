@@ -3,11 +3,11 @@ import xml.etree.ElementTree as ET
 import statistics
 import os
 from crop_subnetwork import crop_network
-from intervention_tools import apply_speed_reduction, apply_signal_retiming
+from intervention_tools import apply_speed_reduction, apply_signal_retiming, apply_add_signal, apply_turn_restriction
 
 FULL_NET = "central_kolkata.net.xml"
 SEEDS = [42, 123, 777]
-DEMAND_END = 300  # seconds of sim-time for each subnet run
+DEMAND_END = 1200  # seconds of sim-time for each subnet run
 
 
 def count_conflicts(ssm_file):
@@ -49,20 +49,30 @@ def run_sumo(net_file, sumocfg, ssm_out, seed):
     return True
 
 
-def run_full_scenario(node_id, interventions=("none", "speed_breaker", "signal_retiming"), radius_m=300, seeds=SEEDS):
-    """Crop subnet around node_id, run each intervention type across all seeds, return raw result rows."""
-    import pandas as pd
-    node_features = pd.read_csv("node_features.csv")
-    node_row = node_features[node_features["node_id"] == node_id]
-    has_signal = bool(node_row.iloc[0]["has_signal"]) if len(node_row) > 0 else False
-
-    if not has_signal and "signal_retiming" in interventions:
-        interventions = tuple(i for i in interventions if i != "signal_retiming")
-        print(f"  Note: '{node_id}' has no signal — skipping signal_retiming intervention.")
-    tag = node_id.replace("/", "_")[:40]  # keep filenames sane
+def run_full_scenario(node_id, interventions=None, radius_m=300, seeds=SEEDS):
+    """Crop subnet around node_id, run applicable interventions across all seeds, return raw result rows."""
+    tag = node_id.replace("/", "_")[:40]
     subnet_file = f"subnet_{tag}.net.xml"
     trips_file = f"subnet_{tag}_trips.trips.xml"
     sumocfg_file = f"subnet_{tag}.sumocfg"
+
+    import pandas as pd
+    node_features_df = pd.read_csv("node_features.csv")
+    node_row = node_features_df[node_features_df["node_id"] == node_id]
+    has_signal = bool(node_row.iloc[0]["has_signal"]) if len(node_row) > 0 else False
+
+    if interventions is None:
+        if has_signal:
+            interventions = ("none", "speed_breaker", "signal_retiming")
+        else:
+            interventions = ("none", "speed_breaker", "add_signal")
+    else:
+        if not has_signal and "signal_retiming" in interventions:
+            interventions = tuple(i for i in interventions if i != "signal_retiming")
+            print(f"  Note: '{node_id}' has no signal — skipping signal_retiming.")
+        if has_signal and "add_signal" in interventions:
+            interventions = tuple(i for i in interventions if i != "add_signal")
+            print(f"  Note: '{node_id}' already has a signal — skipping add_signal.")
 
     print(f"\n=== Junction: {node_id} ===")
     print("  Cropping sub-network...")
@@ -107,6 +117,15 @@ def run_full_scenario(node_id, interventions=("none", "speed_breaker", "signal_r
         elif intervention == "signal_retiming":
             net_for_run = f"subnet_{tag}_signalretime.net.xml"
             apply_signal_retiming(subnet_file, node_id, net_for_run, green_multiplier=1.3)
+        elif intervention == "turn_restriction":
+            net_for_run = f"subnet_{tag}_turnrestrict.net.xml"
+            apply_turn_restriction(subnet_file, node_id, net_for_run, banned_dir="l")
+        elif intervention == "add_signal":
+            net_for_run = f"subnet_{tag}_addsignal.net.xml"
+            result = apply_add_signal(subnet_file, node_id, net_for_run)
+            if result is None:
+                print(f"    Skipping add_signal for {node_id} — conversion failed.")
+                continue
         else:
             print(f"    Unknown intervention '{intervention}', skipping.")
             continue

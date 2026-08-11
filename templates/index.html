@@ -13,18 +13,24 @@
   <p>Predictive Accident Hotspot Detection & Intervention Simulator — Central Kolkata</p>
 </div>
 
+<div id="stats-bar"></div>
+
 <div id="legend">
-  <div class="legend-title">Conflict Risk</div>
-  <div class="legend-row"><span class="swatch" style="background:#3b82f6"></span> Low</div>
-  <div class="legend-row"><span class="swatch" style="background:#22c55e"></span> Moderate-Low</div>
-  <div class="legend-row"><span class="swatch" style="background:#eab308"></span> Moderate</div>
-  <div class="legend-row"><span class="swatch" style="background:#f97316"></span> High</div>
-  <div class="legend-row"><span class="swatch" style="background:#ef4444"></span> Very High</div>
+  <div class="legend-title">Conflict Density</div>
+  <div class="gradient-bar"></div>
+  <div class="gradient-labels"><span>low</span><span>high</span></div>
+  <div class="legend-note">Capped at 95th percentile for contrast</div>
   <div class="legend-divider"></div>
-  <div class="legend-title">Tested Junctions</div>
-  <div class="legend-row"><span class="dot" style="background:#3fb950"></span> &lt; 60 conflicts</div>
-  <div class="legend-row"><span class="dot" style="background:#f0883e"></span> 60–150 conflicts</div>
-  <div class="legend-row"><span class="dot" style="background:#f85149"></span> &gt; 150 conflicts</div>
+  <div class="legend-title">Junction Status</div>
+  <div class="legend-row"><span class="dot" style="background:#3b82f6"></span> No conflicts detected</div>
+  <div class="legend-row"><span class="dot" style="background:#22c55e"></span> Low (1–60 conflicts)</div>
+  <div class="legend-row"><span class="dot" style="background:#f97316"></span> Moderate (60–150)</div>
+  <div class="legend-row"><span class="dot" style="background:#ef4444"></span> High (&gt; 150)</div>
+</div>
+
+<div id="top5-sidebar">
+  <div class="top5-title">⚠ Top 5 Riskiest Junctions</div>
+  <div id="top5-list"></div>
 </div>
 
 <div id="map"></div>
@@ -34,22 +40,40 @@
   <h2 id="panel-title">Junction</h2>
   <div id="panel-stats"></div>
 
+  <div id="panel-recommendation"></div>
+
+  <div class="panel-divider"></div>
+  <div class="explore-label">Or explore a specific intervention manually:</div>
+
   <div id="panel-form">
     <label for="intervention-select">Select Intervention</label>
     <select id="intervention-select">
       <option value="speed_breaker">Speed Breaker</option>
       <option value="signal_retiming">Traffic Signal Retiming</option>
-      <option value="other">Other (custom, manual)</option>
+      <option value="add_signal">Add Traffic Signal</option>
+      <option value="turn_restriction">Turn Restriction (Ban Left Turns)</option>
     </select>
 
-    <div id="other-input-wrap" class="hidden">
-      <input type="text" id="other-input" placeholder="Describe custom intervention..."/>
-    </div>
-
-    <button id="add-intervention-btn">Add Intervention</button>
+    <button id="add-intervention-btn">
+      <span id="btn-text">Add Intervention</span>
+      <span id="btn-spinner" class="spinner hidden"></span>
+    </button>
   </div>
 
   <div id="panel-result"></div>
+</div>
+
+<div id="intro-overlay">
+  <div id="intro-modal">
+    <h2><span class="suraksha">Suraksha</span><span class="path">Path</span></h2>
+    <p>A predictive road-safety tool for Central Kolkata, built on real traffic simulation data.</p>
+    <ul>
+      <li><b>Click any marker</b> to see that junction's conflict risk.</li>
+      <li><b>Blue markers</b> are quiet zones — click to see why they're safe.</li>
+      <li><b>Green / Orange / Red markers</b> are conflict zones — you can simulate an intervention and see a live prediction of its effect.</li>
+    </ul>
+    <button id="intro-close-btn">Got it — Show me the map</button>
+  </div>
 </div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

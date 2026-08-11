@@ -24,21 +24,28 @@ summary["std_severe_conflicts"] = summary["std_severe_conflicts"].fillna(0)
 
 print(f"Summary table: {len(summary)} (junction, intervention) combinations")
 
-# --- Step 2: Get each junction's baseline mean as its own reference column ---
-baseline_only = summary[summary["intervention"] == "none"][["node_id", "mean_total_conflicts", "mean_severe_conflicts"]]
-baseline_only = baseline_only.rename(columns={
-    "mean_total_conflicts": "baseline_mean_conflicts",
-    "mean_severe_conflicts": "baseline_mean_severe"
+# --- Step 2a: Get each junction's SUBNET baseline (for computing an accurate, paired delta) ---
+subnet_baseline = summary[summary["intervention"] == "none"][["node_id", "mean_total_conflicts", "mean_severe_conflicts"]]
+subnet_baseline = subnet_baseline.rename(columns={
+    "mean_total_conflicts": "subnet_baseline_conflicts",
+    "mean_severe_conflicts": "subnet_baseline_severe"
 })
+summary = summary.merge(subnet_baseline, on="node_id", how="left")
 
-summary = summary.merge(baseline_only, on="node_id", how="left")
+# --- Step 2b: Get each junction's CITYWIDE baseline (for the model's input feature — consistent at inference time) ---
+citywide_baseline = pd.read_csv("baseline_conflicts_per_node.csv")[["node_id", "total_conflicts", "severe_conflicts"]]
+citywide_baseline = citywide_baseline.rename(columns={
+    "total_conflicts": "baseline_mean_conflicts",
+    "severe_conflicts": "baseline_mean_severe"
+})
+summary = summary.merge(citywide_baseline, on="node_id", how="left")
 
-# --- Step 3: Compute delta and percentage change vs baseline ---
-summary["conflict_delta"] = summary["mean_total_conflicts"] - summary["baseline_mean_conflicts"]
-summary["conflict_pct_change"] = (summary["conflict_delta"] / summary["baseline_mean_conflicts"].replace(0, 1)) * 100
+# --- Step 3: Compute delta using the PAIRED subnet comparison (same methodology, correct) ---
+summary["conflict_delta"] = summary["mean_total_conflicts"] - summary["subnet_baseline_conflicts"]
+summary["conflict_pct_change"] = (summary["conflict_delta"] / summary["subnet_baseline_conflicts"].replace(0, 1)) * 100
 
-summary["severe_delta"] = summary["mean_severe_conflicts"] - summary["baseline_mean_severe"]
-summary["severe_pct_change"] = (summary["severe_delta"] / summary["baseline_mean_severe"].replace(0, 1)) * 100
+summary["severe_delta"] = summary["mean_severe_conflicts"] - summary["subnet_baseline_severe"]
+summary["severe_pct_change"] = (summary["severe_delta"] / summary["subnet_baseline_severe"].replace(0, 1)) * 100
 
 # --- Step 4: Merge in static node features (signal presence, lane count, etc.) ---
 print("\nMerging in node features and baseline behavior...")
