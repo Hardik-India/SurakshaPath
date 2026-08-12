@@ -1,8 +1,8 @@
-\# SurakshaPath — Predictive Road Accident Hotspot Detection \& Intervention Simulator
+# SurakshaPath — Predictive Road Accident Hotspot Detection & Intervention Simulator
 
 
 
-\*\*Smart India Hackathon 2026 — Transportation \& Mobility\*\*
+**Smart India Hackathon 2026 — Transportation & Mobility**
 
 
 
@@ -14,19 +14,19 @@ Built on a real, imported Central Kolkata road network simulated in \[SUMO](http
 
 
 
-\---
+---
 
 
 
-\## What It Does
+## What It Does
 
 
 
-1\. \*\*Identifies conflict hotspots\*\* across \~600+ real junctions in Central Kolkata, using SUMO-simulated near-miss ("conflict") events as a dense, statistically richer proxy for rare real-world accidents.
+1. **Identifies conflict hotspots** across ~600+ real junctions in Central Kolkata, using SUMO-simulated near-miss ("conflict") events as a dense, statistically richer proxy for rare real-world accidents.
 
-2\. \*\*Visualizes risk\*\* on an interactive heatmap with a live legend, color-coded by conflict density.
+2. **Visualizes risk** on an interactive heatmap with a live legend, color-coded by conflict density.
 
-3\. \*\*Lets a user click any junction\*\* and see either why it's a safe/quiet zone, or — for conflict zones — get an automatic, written recommendation for the best available intervention.
+3. **Lets a user click any junction** and see either why it's a safe/quiet zone, or — for conflict zones — get an automatic, written recommendation for the best available intervention.
 
 4\. \*\*Predicts intervention outcomes\*\*: for junctions we've directly simulated, results are ground-truth (measured via repeated SUMO runs); for others, a trained ML model estimates the likely effect.
 
@@ -220,49 +220,36 @@ python train\_model.py
 
 
 
-\---
+---
 
 
 
-\## Methodology Notes \& Known Limitations
+## Methodology Notes & Known Limitations
 
 
 
-\- \*\*Small sample size\*\*: intervention testing was run on \~35–45 (junction × intervention) combinations due to simulation time constraints. This is enough for a proof-of-concept but not a production-grade statistical sample — the model's confidence should be read accordingly.
+- **Small sample size**: intervention testing was run on ~35–45 (junction × intervention) combinations due to simulation time constraints. This is enough for a proof-of-concept but not a production-grade statistical sample — the model's confidence should be read accordingly.
 
-\- \*\*Ground-truth vs. model estimates\*\*: for junctions we've directly simulated multiple times, predictions use the real measured average, not the ML model — the app labels which type of result you're seeing.
+- **Ground-truth vs. model estimates**: for junctions we've directly simulated multiple times, predictions use the real measured average, not the ML model — the app labels which type of result you're seeing.
 
-\- \*\*Simulated conflicts, not real accidents\*\*: due to sparse, inconsistently geo-tagged real accident data in India, this project uses SUMO-simulated near-miss "conflicts" (Surrogate Safety Measures) as a proxy signal, consistent with FHWA's SSAM methodology.
+- **Simulated conflicts, not real accidents**: due to sparse, inconsistently geo-tagged real accident data in India, this project uses SUMO-simulated near-miss "conflicts" (Surrogate Safety Measures) as a proxy signal, consistent with FHWA's SSAM methodology.
 
-\- \*\*Two junctions with known geometry limitations\*\*: a small number of complex "cluster" junctions in the imported network have internal geometry SUMO's SSM device can't fully resolve for all conflicting movement pairs — conflict counts at these are likely a slight undercount.
+- **Two junctions with known geometry limitations**: a small number of complex "cluster" junctions in the imported network have internal geometry SUMO's SSM device can't fully resolve for all conflicting movement pairs — conflict counts at these are likely a slight undercount.
 
-\- \*\*Single-city, single-area scope\*\*: current results cover Central Kolkata only, as a feasibility demonstration.
-
-
-
-\---
+- **Single-city, single-area scope**: current results cover Central Kolkata only, as a feasibility demonstration.
 
 
 
-\## Acknowledgements
+---
 
 
 
-\- OpenStreetMap contributors, for the road network data
-
-\- Eclipse SUMO team, for the simulation platform
-
-\- FHWA's Surrogate Safety Assessment Model (SSAM), for the conflict-based safety methodology this project builds on
+## Acknowledgements
 
 
 
-\---
+- OpenStreetMap contributors, for the road network data
 
+- Eclipse SUMO team, for the simulation platform
 
-
-\## License
-
-
-
-\*(Add your preferred license here, e.g., MIT)\*
-
+- FHWA's Surrogate Safety Assessment Model (SSAM), for the conflict-based safety methodology this project builds on
