@@ -34,27 +34,12 @@ def apply_speed_reduction(net_file, node_id, output_file, reduction_factor=0.8):
 
 
 def apply_signal_retiming(net_file, node_id, output_file, green_multiplier=1.3):
-    """Signal retiming simulation: extend green phase duration at this junction's traffic light."""
+    """
+    Signal retiming simulation: extend green phase duration at this
+    junction's traffic light by green_multiplier.
+    """
     net = sumolib.net.readNet(net_file)
 
-def apply_add_signal(net_file, node_id, output_file):
-    """Converts an unsignalized junction into a signal-controlled one using netconvert's built-in TLS conversion."""
-    cmd = [
-        "netconvert",
-        "--sumo-net-file", net_file,
-        "--tls.set", node_id,
-        "--tls.default-type", "actuated",
-        "-o", output_file,
-        "--no-warnings", "true"
-    ]
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-    if result.returncode != 0:
-        print(f"  ERROR adding signal: {result.stderr[-500:]}")
-        return None
-    print(f"  Converted junction '{node_id}' to a signal-controlled junction.")
-    return output_file
-
-    # Find the tlLogic ID that actually controls this node
     tls_id_for_node = None
     for tls in net.getTrafficLights():
         controlled_nodes = {conn[0].getEdge().getToNode().getID() for conn in tls.getConnections()}
@@ -83,6 +68,24 @@ def apply_add_signal(net_file, node_id, output_file):
 
     tree.write(output_file, encoding="UTF-8", xml_declaration=True)
     print(f"  Applied signal retiming to tlLogic '{tls_id_for_node}', {changed} green phases extended.")
+    return output_file
+
+
+def apply_add_signal(net_file, node_id, output_file):
+    """Converts an unsignalized junction into a signal-controlled one using netconvert's built-in TLS conversion."""
+    cmd = [
+        "netconvert",
+        "--sumo-net-file", net_file,
+        "--tls.set", node_id,
+        "--tls.default-type", "actuated",
+        "-o", output_file,
+        "--no-warnings", "true"
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+    if result.returncode != 0:
+        print(f"  ERROR adding signal: {result.stderr[-500:]}")
+        return None
+    print(f"  Converted junction '{node_id}' to a signal-controlled junction.")
     return output_file
 
 
@@ -127,11 +130,8 @@ def run_scenario(net_file, sumocfg, node_id, intervention_type, scenario_tag):
         print(f"  STDERR (last 1000 chars): {result.stderr[-1000:]}")
         return None
 
-    if result.returncode != 0:
-        print(f"  ERROR running scenario: {result.stderr[:500]}")
-        return None
-
     return ssm_output
+
 
 def apply_turn_restriction(net_file, node_id, output_file, banned_dir="l"):
     """Removes connections matching a turn direction by decompiling the network to plain XML,

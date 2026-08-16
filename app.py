@@ -1,6 +1,7 @@
 from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 import pandas as pd
+import os
 from predict_intervention import predict_intervention_effect
 
 app = Flask(__name__)
@@ -15,6 +16,46 @@ merged["severe_conflicts"] = merged["severe_conflicts"].fillna(0)
 merged["is_conflict_zone"] = merged["total_conflicts"] > 0
 
 MEDIAN_LANES = node_features["num_lanes_total"].median()
+
+# --- Time-of-day support ---
+VALID_SLOTS = ["office", "noon", "evening", "midnight"]
+TIMESERIES_FILE = "baseline_conflicts_timeseries.csv"
+HAS_TIMESERIES = os.path.exists(TIMESERIES_FILE)
+
+if HAS_TIMESERIES:
+    timeseries_df = pd.read_csv(TIMESERIES_FILE)
+    # Only advertise slots that actually have non-zero data (merge_timeslots.py
+    # fills missing slots with 0s rather than omitting columns, so a slot
+    # column existing doesn't guarantee real data was generated for it)
+    SLOTS_WITH_DATA = [
+        slot for slot in VALID_SLOTS
+        if f"total_conflicts_{slot}" in timeseries_df.columns
+        and timeseries_df[f"total_conflicts_{slot}"].sum() > 0
+    ]
+else:
+    timeseries_df = None
+    SLOTS_WITH_DATA = []
+
+
+def get_conflicts_for_slot(slot):
+    """
+    Returns a dataframe with node_id, lat, lon, total_conflicts, severe_conflicts
+    for the requested time slot. Falls back to the original all-day 'merged'
+    dataframe if the time-series file hasn't been generated yet, the slot
+    isn't recognized, or the slot has no real data yet.
+    """
+    if slot == "all" or not HAS_TIMESERIES or slot not in SLOTS_WITH_DATA:
+        return merged[["node_id", "lat", "lon", "total_conflicts", "severe_conflicts"]].copy()
+
+    df = timeseries_df[[
+        "node_id", "lat", "lon",
+        f"total_conflicts_{slot}", f"severe_conflicts_{slot}"
+    ]].copy()
+    df = df.rename(columns={
+        f"total_conflicts_{slot}": "total_conflicts",
+        f"severe_conflicts_{slot}": "severe_conflicts",
+    })
+    return df
 
 
 def build_reason(row):
@@ -50,13 +91,25 @@ def index():
 
 @app.route("/api/heatmap")
 def api_heatmap():
-    heat_rows = merged[merged["total_conflicts"] > 0][["lat", "lon", "total_conflicts"]]
+    slot = request.args.get("time", "all")
+    slot_df = get_conflicts_for_slot(slot)
+    heat_rows = slot_df[slot_df["total_conflicts"] > 0][["lat", "lon", "total_conflicts"]]
     return jsonify(heat_rows.values.tolist())
 
 
 @app.route("/api/nodes")
 def api_nodes():
-    valid = merged.dropna(subset=["lat", "lon"])
+    slot = request.args.get("time", "all")
+    slot_df = get_conflicts_for_slot(slot)
+
+    # Bring in static node attributes (signal, lanes) that don't vary by time
+    full = slot_df.merge(
+        node_features[["node_id", "has_signal", "num_lanes_total"]],
+        on="node_id", how="left"
+    )
+    full["is_conflict_zone"] = full["total_conflicts"] > 0
+    valid = full.dropna(subset=["lat", "lon"])
+
     nodes = []
     for _, row in valid.iterrows():
         is_zone = bool(row["is_conflict_zone"])
@@ -69,12 +122,21 @@ def api_nodes():
             "has_signal": bool(row["has_signal"]),
             "num_lanes_total": int(row["num_lanes_total"]),
             "is_conflict_zone": is_zone,
-            "severity_tier": severity_tier(row["total_conflicts"])
+            "severity_tier": severity_tier(row["total_conflicts"]),
+            "time_slot": slot,
         }
         if not is_zone:
             entry["reason"] = build_reason(row)
         nodes.append(entry)
     return jsonify(nodes)
+
+
+@app.route("/api/time-slots")
+def api_time_slots():
+    return jsonify({
+        "available": len(SLOTS_WITH_DATA) > 0,
+        "slots": SLOTS_WITH_DATA,
+    })
 
 
 @app.route("/api/predict", methods=["POST"])

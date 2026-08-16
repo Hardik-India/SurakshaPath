@@ -9,8 +9,20 @@
 <body>
 
 <div id="header">
-  <h1><span class="suraksha">Suraksha</span><span class="path">Path</span></h1>
-  <p>Predictive Accident Hotspot Detection & Intervention Simulator — Central Kolkata</p>
+  <div id="title-div">
+    <h1><span class="suraksha">Suraksha</span><span class="path">Path</span></h1>
+    <p>Predictive Accident Hotspot Detection & Intervention Simulator — Central Kolkata</p>
+  </div>
+  <div id="time-selector">
+    <label for="time-select" class="time-selector-label">Time of day:</label>
+    <select id="time-select">
+      <option value="all">All-day</option>
+      <option value="office">Office hours</option>
+      <option value="noon">Noon</option>
+      <option value="evening">Evening</option>
+      <option value="midnight">Midnight</option>
+    </select>
+  </div>
 </div>
 
 <div id="stats-bar"></div>
@@ -23,13 +35,13 @@
   <div class="legend-divider"></div>
   <div class="legend-title">Junction Status</div>
   <div class="legend-row"><span class="dot" style="background:#3b82f6"></span> No conflicts detected</div>
-  <div class="legend-row"><span class="dot" style="background:#22c55e"></span> Low (1–60 conflicts)</div>
-  <div class="legend-row"><span class="dot" style="background:#f97316"></span> Moderate (60–150)</div>
+  <div class="legend-row"><span class="dot" style="background:#22c55e"></span> Low (1-60 conflicts)</div>
+  <div class="legend-row"><span class="dot" style="background:#f97316"></span> Moderate (60-150)</div>
   <div class="legend-row"><span class="dot" style="background:#ef4444"></span> High (&gt; 150)</div>
 </div>
 
 <div id="top5-sidebar">
-  <div class="top5-title">⚠ Top 5 Riskiest Junctions</div>
+  <div class="top5-title">Top 5 Riskiest Junctions</div>
   <div id="top5-list"></div>
 </div>
 
@@ -69,10 +81,10 @@
     <p>A predictive road-safety tool for Central Kolkata, built on real traffic simulation data.</p>
     <ul>
       <li><b>Click any marker</b> to see that junction's conflict risk.</li>
-      <li><b>Blue markers</b> are quiet zones — click to see why they're safe.</li>
-      <li><b>Green / Orange / Red markers</b> are conflict zones — you can simulate an intervention and see a live prediction of its effect.</li>
+      <li><b>Blue markers</b> are quiet zones - click to see why they're safe.</li>
+      <li><b>Green / Orange / Red markers</b> are conflict zones - you can simulate an intervention and see a live prediction of its effect.</li>
     </ul>
-    <button id="intro-close-btn">Got it — Show me the map</button>
+    <button id="intro-close-btn">Got it - Show me the map</button>
   </div>
 </div>
 
