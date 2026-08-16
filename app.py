@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import pandas as pd
 import os
@@ -7,8 +7,11 @@ from predict_intervention import predict_intervention_effect
 app = Flask(__name__)
 CORS(app)
 
-node_features = pd.read_csv("node_features.csv")
-baseline_conflicts = pd.read_csv("baseline_conflicts_per_node.csv")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
+node_features = pd.read_csv(os.path.join(DATA_DIR, "node_features.csv"))
+baseline_conflicts = pd.read_csv(os.path.join(DATA_DIR, "baseline_conflicts_per_node.csv"))
 
 merged = node_features.merge(baseline_conflicts, on="node_id", how="left")
 merged["total_conflicts"] = merged["total_conflicts"].fillna(0)
@@ -19,14 +22,11 @@ MEDIAN_LANES = node_features["num_lanes_total"].median()
 
 # --- Time-of-day support ---
 VALID_SLOTS = ["office", "noon", "evening", "midnight"]
-TIMESERIES_FILE = "baseline_conflicts_timeseries.csv"
+TIMESERIES_FILE = os.path.join(DATA_DIR, "baseline_conflicts_timeseries.csv")
 HAS_TIMESERIES = os.path.exists(TIMESERIES_FILE)
 
 if HAS_TIMESERIES:
     timeseries_df = pd.read_csv(TIMESERIES_FILE)
-    # Only advertise slots that actually have non-zero data (merge_timeslots.py
-    # fills missing slots with 0s rather than omitting columns, so a slot
-    # column existing doesn't guarantee real data was generated for it)
     SLOTS_WITH_DATA = [
         slot for slot in VALID_SLOTS
         if f"total_conflicts_{slot}" in timeseries_df.columns
@@ -38,12 +38,6 @@ else:
 
 
 def get_conflicts_for_slot(slot):
-    """
-    Returns a dataframe with node_id, lat, lon, total_conflicts, severe_conflicts
-    for the requested time slot. Falls back to the original all-day 'merged'
-    dataframe if the time-series file hasn't been generated yet, the slot
-    isn't recognized, or the slot has no real data yet.
-    """
     if slot == "all" or not HAS_TIMESERIES or slot not in SLOTS_WITH_DATA:
         return merged[["node_id", "lat", "lon", "total_conflicts", "severe_conflicts"]].copy()
 
@@ -86,7 +80,7 @@ def severity_tier(total_conflicts):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return jsonify({"status": "SurakshaPath API running"})
 
 
 @app.route("/api/heatmap")
@@ -102,7 +96,6 @@ def api_nodes():
     slot = request.args.get("time", "all")
     slot_df = get_conflicts_for_slot(slot)
 
-    # Bring in static node attributes (signal, lanes) that don't vary by time
     full = slot_df.merge(
         node_features[["node_id", "has_signal", "num_lanes_total"]],
         on="node_id", how="left"
@@ -150,6 +143,7 @@ def api_predict():
 
     result = predict_intervention_effect(node_id, intervention)
     return jsonify(result)
+
 
 @app.route("/api/recommend", methods=["POST"])
 def api_recommend():

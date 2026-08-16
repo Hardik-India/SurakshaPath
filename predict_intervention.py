@@ -1,14 +1,18 @@
 import pandas as pd
 import joblib
+import os
 
-classifier = joblib.load("surrogate_model_classifier.pkl")
-ridge_model = joblib.load("surrogate_model_ridge.pkl")
-feature_cols = joblib.load("surrogate_model_features.pkl")
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODELS_DIR = os.path.join(BASE_DIR, "models")
+DATA_DIR = os.path.join(BASE_DIR, "data")
 
-node_features = pd.read_csv("node_features.csv")
-node_baseline_behavior = pd.read_csv("node_baseline_from_existing_data.csv")
-baseline_conflicts = pd.read_csv("baseline_conflicts_per_node.csv")
+classifier = joblib.load(os.path.join(MODELS_DIR, "surrogate_model_classifier.pkl"))
+ridge_model = joblib.load(os.path.join(MODELS_DIR, "surrogate_model_ridge.pkl"))
+feature_cols = joblib.load(os.path.join(MODELS_DIR, "surrogate_model_features.pkl"))
 
+node_features = pd.read_csv(os.path.join(DATA_DIR, "node_features.csv"))
+node_baseline_behavior = pd.read_csv(os.path.join(DATA_DIR, "node_baseline_from_existing_data.csv"))
+baseline_conflicts = pd.read_csv(os.path.join(DATA_DIR, "baseline_conflicts_per_node.csv"))
 
 def predict_intervention_effect(node_id, intervention_type):
     node_row = node_features[node_features["node_id"] == node_id]
