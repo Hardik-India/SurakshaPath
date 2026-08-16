@@ -37,9 +37,20 @@ def apply_signal_retiming(net_file, node_id, output_file, green_multiplier=1.3):
     """
     Signal retiming simulation: extend green phase duration at this
     junction's traffic light by green_multiplier.
+
+    BUGFIX: this function previously ended right after reading the network
+    (`net = sumolib.net.readNet(net_file)`), with no further logic and no
+    return statement -- so it silently did nothing and returned None. The
+    actual retiming logic below existed in the file but was orphaned after
+    a different function's `return`, so it never ran. That meant every
+    "signal_retiming" scenario actually simulated the UNMODIFIED network
+    (or crashed downstream on a missing output file), which is why
+    intervention results looked random/harmful instead of showing a real
+    effect.
     """
     net = sumolib.net.readNet(net_file)
 
+    # Find the tlLogic ID that actually controls this node
     tls_id_for_node = None
     for tls in net.getTrafficLights():
         controlled_nodes = {conn[0].getEdge().getToNode().getID() for conn in tls.getConnections()}
@@ -72,7 +83,25 @@ def apply_signal_retiming(net_file, node_id, output_file, green_multiplier=1.3):
 
 
 def apply_add_signal(net_file, node_id, output_file):
-    """Converts an unsignalized junction into a signal-controlled one using netconvert's built-in TLS conversion."""
+    """
+    Converts an unsignalized junction into a signal-controlled one using
+    netconvert's built-in TLS conversion.
+
+    NOTE: Two attempts were made to "improve" this (fixed-duration retuning,
+    then switching actuated->static) -- both made add_signal's conflict
+    increase WORSE, not better (+8% -> +16.5% -> +25.2% mean across test
+    junctions), disproving the theories behind those changes. Reverted back
+    to this original simple version, which produced the mildest (though
+    still net-positive) conflict increase. That +8% average increase should
+    be reported as a genuine finding, not treated as a bug: a newly-added
+    signal at a previously free-flowing junction plausibly causes real
+    stop-and-go conflicts during a short simulation window, and further
+    "fixing" this without deeper SUMO-specific investigation (more sim time,
+    proper detector placement, real signal warrant analysis) risks doing
+    more harm than good. Do not modify this function again without first
+    verifying a specific, evidenced hypothesis against the actual SUMO
+    output -- not a plausible-sounding guess.
+    """
     cmd = [
         "netconvert",
         "--sumo-net-file", net_file,
