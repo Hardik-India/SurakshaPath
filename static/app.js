@@ -10,6 +10,9 @@ let currentNodeData = null;
 let currentPredictionResult = null;
 let markersByNodeId = {};
 let selectionMarker = null;
+let heatLayer = null;
+let currentTimeSlot = 'all';
+let availableTimeSlots = []; // filled in from /api/time-slots
 
 const TIER_COLORS = {
   none: '#3b82f6',
@@ -18,61 +21,116 @@ const TIER_COLORS = {
   high: '#ef4444'
 };
 
-// --- Heatmap ---
-fetch('/api/heatmap')
+// --- Time-of-day selector (dropdown) ---
+// Checks which slots actually have data (some may not be generated yet) and
+// disables options for missing ones instead of hiding them, so it's obvious
+// they exist but aren't ready rather than looking broken.
+fetch('/api/time-slots')
   .then(res => res.json())
-  .then(data => {
-    const sortedVals = data.map(d => d[2]).sort((a, b) => a - b);
-    const p95 = sortedVals[Math.floor(sortedVals.length * 0.95)] || Math.max(...sortedVals);
-    const heatPoints = data.map(d => [d[0], d[1], Math.min(d[2], p95)]);
-
-    L.heatLayer(heatPoints, {
-      radius: 22, blur: 18, maxZoom: 17, max: p95,
-      gradient: { 0.0: '#0000ff', 0.25: '#00ffff', 0.5: '#00ff00', 0.75: '#ffff00', 1.0: '#ff0000' }
-    }).addTo(map);
+  .then(info => {
+    availableTimeSlots = info.slots || [];
+    document.querySelectorAll('#time-select option').forEach(opt => {
+      const slot = opt.value;
+      if (slot === 'all') return; // all-day is always available
+      if (!info.available || !availableTimeSlots.includes(slot)) {
+        opt.disabled = true;
+        opt.textContent += ' (not ready)';
+      }
+    });
+  })
+  .catch(() => {
+    // If the endpoint doesn't exist yet (app.py not patched), just leave
+    // all options enabled -- they'll silently fall back to all-day data.
   });
 
-// --- Nodes + markers + stats bar + top-5 sidebar ---
-fetch('/api/nodes')
-  .then(res => res.json())
-  .then(nodes => {
-    nodes.forEach(node => {
-      const color = TIER_COLORS[node.severity_tier];
-      const radius = node.is_conflict_zone ? 8 : 5;
+document.getElementById('time-select').addEventListener('change', (e) => {
+  const slot = e.target.value;
+  if (slot === currentTimeSlot) return;
+  currentTimeSlot = slot;
+  loadHeatmap(slot);
+  loadNodes(slot);
+});
 
-      const marker = L.circleMarker([node.lat, node.lon], {
-        radius: radius, color: color, fillColor: color, fillOpacity: 0.85, weight: node.is_conflict_zone ? 2 : 1
+// --- Heatmap (now a function so it can be re-run per time slot) ---
+function loadHeatmap(slot) {
+  fetch(`/api/heatmap?time=${encodeURIComponent(slot)}`)
+    .then(res => res.json())
+    .then(data => {
+      if (heatLayer) {
+        map.removeLayer(heatLayer);
+        heatLayer = null;
+      }
+      if (data.length === 0) return;
+
+      const sortedVals = data.map(d => d[2]).sort((a, b) => a - b);
+      const p95 = sortedVals[Math.floor(sortedVals.length * 0.95)] || Math.max(...sortedVals);
+      const heatPoints = data.map(d => [d[0], d[1], Math.min(d[2], p95)]);
+
+      heatLayer = L.heatLayer(heatPoints, {
+        radius: 22, blur: 18, maxZoom: 17, max: p95,
+        gradient: { 0.0: '#0000ff', 0.25: '#00ffff', 0.5: '#00ff00', 0.75: '#ffff00', 1.0: '#ff0000' }
       }).addTo(map);
-
-      marker.bindTooltip(`${node.node_id}<br>${node.total_conflicts} conflicts`, { sticky: true });
-      marker.on('click', () => openPanel(node));
-      markersByNodeId[node.node_id] = { marker: marker, node: node };
     });
+}
 
-    const conflictZones = nodes.filter(n => n.is_conflict_zone);
-    document.getElementById('stats-bar').innerText =
-      `${nodes.length} junctions analyzed · ${conflictZones.length} conflict zones identified · 3 intervention types modeled`;
+// --- Nodes + markers + stats bar + top-5 sidebar (also now per-slot) ---
+function loadNodes(slot) {
+  fetch(`/api/nodes?time=${encodeURIComponent(slot)}`)
+    .then(res => res.json())
+    .then(nodes => {
+      // Remove existing markers before redrawing for the new time slot
+      Object.values(markersByNodeId).forEach(entry => map.removeLayer(entry.marker));
+      markersByNodeId = {};
 
-    const top5 = [...conflictZones].sort((a, b) => b.total_conflicts - a.total_conflicts).slice(0, 5);
-    const listEl = document.getElementById('top5-list');
-    listEl.innerHTML = top5.map((n, i) => `
-      <div class="top5-item" data-node="${n.node_id}">
-        <span class="top5-rank">#${i + 1}</span>
-        <span class="top5-info">${n.node_id.slice(0, 22)}${n.node_id.length > 22 ? '…' : ''}<br><span class="top5-count">${n.total_conflicts} conflicts</span></span>
-      </div>
-    `).join('');
+      nodes.forEach(node => {
+        const color = TIER_COLORS[node.severity_tier];
+        const radius = node.is_conflict_zone ? 8 : 5;
 
-    document.querySelectorAll('.top5-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const nodeId = item.getAttribute('data-node');
-        const entry = markersByNodeId[nodeId];
-        if (entry) {
-          map.flyTo(entry.marker.getLatLng(), 17, { duration: 1 });
-          openPanel(entry.node);
-        }
+        const marker = L.circleMarker([node.lat, node.lon], {
+          radius: radius, color: color, fillColor: color, fillOpacity: 0.85, weight: node.is_conflict_zone ? 2 : 1
+        }).addTo(map);
+
+        marker.bindTooltip(`${node.node_id}<br>${node.total_conflicts} conflicts`, { sticky: true });
+        marker.on('click', () => openPanel(node));
+        markersByNodeId[node.node_id] = { marker: marker, node: node };
       });
+
+      const conflictZones = nodes.filter(n => n.is_conflict_zone);
+      const slotLabel = slot === 'all' ? 'all-day' : slot;
+      document.getElementById('stats-bar').innerText =
+        `${nodes.length} junctions analyzed (${slotLabel}) \u00b7 ${conflictZones.length} conflict zones identified \u00b7 3 intervention types modeled`;
+
+      const top5 = [...conflictZones].sort((a, b) => b.total_conflicts - a.total_conflicts).slice(0, 5);
+      const listEl = document.getElementById('top5-list');
+      listEl.innerHTML = top5.map((n, i) => `
+        <div class="top5-item" data-node="${n.node_id}">
+          <span class="top5-rank">#${i + 1}</span>
+          <span class="top5-info">${n.node_id.slice(0, 22)}${n.node_id.length > 22 ? '\u2026' : ''}<br><span class="top5-count">${n.total_conflicts} conflicts</span></span>
+        </div>
+      `).join('');
+
+      document.querySelectorAll('.top5-item').forEach(item => {
+        item.addEventListener('click', () => {
+          const nodeId = item.getAttribute('data-node');
+          const entry = markersByNodeId[nodeId];
+          if (entry) {
+            map.flyTo(entry.marker.getLatLng(), 17, { duration: 1 });
+            openPanel(entry.node);
+          }
+        });
+      });
+
+      // If the panel is open for a node that still exists in this slot's
+      // data, refresh its stats in place rather than leaving stale numbers.
+      if (selectedNodeId && markersByNodeId[selectedNodeId]) {
+        openPanel(markersByNodeId[selectedNodeId].node);
+      }
     });
-  });
+}
+
+// Initial load (all-day, matches original behavior)
+loadHeatmap(currentTimeSlot);
+loadNodes(currentTimeSlot);
 
 // --- Panel logic ---
 function openPanel(node) {
@@ -85,23 +143,23 @@ function openPanel(node) {
   document.getElementById('panel-result').innerHTML = '';
 
   function showSelectionPointer(node) {
-  if (selectionMarker) {
-    map.removeLayer(selectionMarker);
+    if (selectionMarker) {
+      map.removeLayer(selectionMarker);
+    }
+
+    const icon = L.divIcon({
+      className: 'selection-pointer-wrap',
+      html: '<div class="selection-pointer"><div class="selection-ring"></div><div class="selection-dot"></div></div>',
+      iconSize: [40, 40],
+      iconAnchor: [20, 20]
+    });
+
+    selectionMarker = L.marker([node.lat, node.lon], { icon: icon, interactive: false, zIndexOffset: 1000 }).addTo(map);
   }
-
-  const icon = L.divIcon({
-    className: 'selection-pointer-wrap',
-    html: '<div class="selection-pointer"><div class="selection-ring"></div><div class="selection-dot"></div></div>',
-    iconSize: [40, 40],
-    iconAnchor: [20, 20]
-  });
-
-  selectionMarker = L.marker([node.lat, node.lon], { icon: icon, interactive: false, zIndexOffset: 1000 }).addTo(map);
-}
 
   if (node.is_conflict_zone) {
     document.getElementById('panel-stats').innerHTML = `
-      <div class="zone-badge zone-conflict">⚠ Conflict Zone</div>
+      <div class="zone-badge zone-conflict">Conflict Zone</div>
       <div><span class="label">Baseline conflicts:</span> ${node.total_conflicts}</div>
       <div><span class="label">Severe conflicts:</span> ${node.severe_conflicts}</div>
       <div><span class="label">Has signal:</span> ${node.has_signal ? 'Yes' : 'No'}</div>
@@ -126,10 +184,10 @@ function openPanel(node) {
   } else {
     document.getElementById('panel-recommendation').innerHTML = '';
     document.getElementById('panel-stats').innerHTML = `
-      <div class="zone-badge zone-safe">✓ Non-Conflict Zone</div>
+      <div class="zone-badge zone-safe">Non-Conflict Zone</div>
       <div><span class="label">Connected lanes:</span> ${node.num_lanes_total}</div>
       <div><span class="label">Has signal:</span> ${node.has_signal ? 'Yes' : 'No'}</div>
-      <div class="reason-text">${node.reason}</div>
+      <div class="reason-text">${node.reason || ''}</div>
     `;
     const formEl = document.getElementById('panel-form');
     formEl.classList.add('hidden');
@@ -139,7 +197,7 @@ function openPanel(node) {
 
 function fetchRecommendation(nodeId) {
   const box = document.getElementById('panel-recommendation');
-  box.innerHTML = `<div class="recommendation-loading">🔍 Analyzing best intervention...</div>`;
+  box.innerHTML = `<div class="recommendation-loading">Analyzing best intervention...</div>`;
 
   fetch('/api/recommend', {
     method: 'POST',
@@ -152,7 +210,7 @@ function fetchRecommendation(nodeId) {
       box.innerHTML = `<div class="result-box result-error">${result.error}</div>`;
       return;
     }
-    const icon = result.recommendation_type === 'positive' ? '✅' : '🔬';
+    const icon = result.recommendation_type === 'positive' ? '\u2705' : '\ud83d\udd2c';
     box.innerHTML = `
       <div class="recommendation-box recommendation-${result.recommendation_type}">
         <div class="recommendation-title">${icon} Recommended Action</div>
@@ -219,7 +277,7 @@ function renderResult(result) {
   }
 
   const effect = result.predicted_effect;
-  const icons = { increase: '⬆️', decrease: '⬇️', no_change: '➡️' };
+  const icons = { increase: '\u2b06\ufe0f', decrease: '\u2b07\ufe0f', no_change: '\u27a1\ufe0f' };
   const words = { increase: 'INCREASE', decrease: 'DECREASE', no_change: 'NO MEANINGFUL CHANGE' };
   const changeNum = result.estimated_change;
   const sign = changeNum > 0 ? '+' : '';

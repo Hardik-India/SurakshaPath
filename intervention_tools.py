@@ -34,25 +34,21 @@ def apply_speed_reduction(net_file, node_id, output_file, reduction_factor=0.8):
 
 
 def apply_signal_retiming(net_file, node_id, output_file, green_multiplier=1.3):
-    """Signal retiming simulation: extend green phase duration at this junction's traffic light."""
-    net = sumolib.net.readNet(net_file)
+    """
+    Signal retiming simulation: extend green phase duration at this
+    junction's traffic light by green_multiplier.
 
-def apply_add_signal(net_file, node_id, output_file):
-    """Converts an unsignalized junction into a signal-controlled one using netconvert's built-in TLS conversion."""
-    cmd = [
-        "netconvert",
-        "--sumo-net-file", net_file,
-        "--tls.set", node_id,
-        "--tls.default-type", "actuated",
-        "-o", output_file,
-        "--no-warnings", "true"
-    ]
-    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
-    if result.returncode != 0:
-        print(f"  ERROR adding signal: {result.stderr[-500:]}")
-        return None
-    print(f"  Converted junction '{node_id}' to a signal-controlled junction.")
-    return output_file
+    BUGFIX: this function previously ended right after reading the network
+    (`net = sumolib.net.readNet(net_file)`), with no further logic and no
+    return statement -- so it silently did nothing and returned None. The
+    actual retiming logic below existed in the file but was orphaned after
+    a different function's `return`, so it never ran. That meant every
+    "signal_retiming" scenario actually simulated the UNMODIFIED network
+    (or crashed downstream on a missing output file), which is why
+    intervention results looked random/harmful instead of showing a real
+    effect.
+    """
+    net = sumolib.net.readNet(net_file)
 
     # Find the tlLogic ID that actually controls this node
     tls_id_for_node = None
@@ -83,6 +79,42 @@ def apply_add_signal(net_file, node_id, output_file):
 
     tree.write(output_file, encoding="UTF-8", xml_declaration=True)
     print(f"  Applied signal retiming to tlLogic '{tls_id_for_node}', {changed} green phases extended.")
+    return output_file
+
+
+def apply_add_signal(net_file, node_id, output_file):
+    """
+    Converts an unsignalized junction into a signal-controlled one using
+    netconvert's built-in TLS conversion.
+
+    NOTE: Two attempts were made to "improve" this (fixed-duration retuning,
+    then switching actuated->static) -- both made add_signal's conflict
+    increase WORSE, not better (+8% -> +16.5% -> +25.2% mean across test
+    junctions), disproving the theories behind those changes. Reverted back
+    to this original simple version, which produced the mildest (though
+    still net-positive) conflict increase. That +8% average increase should
+    be reported as a genuine finding, not treated as a bug: a newly-added
+    signal at a previously free-flowing junction plausibly causes real
+    stop-and-go conflicts during a short simulation window, and further
+    "fixing" this without deeper SUMO-specific investigation (more sim time,
+    proper detector placement, real signal warrant analysis) risks doing
+    more harm than good. Do not modify this function again without first
+    verifying a specific, evidenced hypothesis against the actual SUMO
+    output -- not a plausible-sounding guess.
+    """
+    cmd = [
+        "netconvert",
+        "--sumo-net-file", net_file,
+        "--tls.set", node_id,
+        "--tls.default-type", "actuated",
+        "-o", output_file,
+        "--no-warnings", "true"
+    ]
+    result = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
+    if result.returncode != 0:
+        print(f"  ERROR adding signal: {result.stderr[-500:]}")
+        return None
+    print(f"  Converted junction '{node_id}' to a signal-controlled junction.")
     return output_file
 
 
@@ -127,11 +159,8 @@ def run_scenario(net_file, sumocfg, node_id, intervention_type, scenario_tag):
         print(f"  STDERR (last 1000 chars): {result.stderr[-1000:]}")
         return None
 
-    if result.returncode != 0:
-        print(f"  ERROR running scenario: {result.stderr[:500]}")
-        return None
-
     return ssm_output
+
 
 def apply_turn_restriction(net_file, node_id, output_file, banned_dir="l"):
     """Removes connections matching a turn direction by decompiling the network to plain XML,

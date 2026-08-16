@@ -6,6 +6,9 @@ body { background: #0d1117; color: #e6edf3; }
   position: absolute; top: 0; left: 0; right: 0; z-index: 1000;
   background: rgba(13, 17, 23, 0.92);
   padding: 14px 24px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
   border-bottom: 1px solid #30363d;
 }
 #header h1 { font-size: 20px; color: #58a6ff; letter-spacing: 0.5px; }
@@ -184,6 +187,38 @@ body { background: #0d1117; color: #e6edf3; }
 .selection-dot {
   position: absolute; width: 10px; height: 10px; border-radius: 50%;
   background: #58a6ff; box-shadow: 0 0 6px rgba(88, 166, 255, 0.9);
+}
+
+#time-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.time-selector-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+#time-select {
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+#time-select option {
+  background: #1e293b;
+  color: #fff;
+}
+
+#time-select option:disabled {
+  color: #888;
 }
 
 @keyframes pulse-ring {
